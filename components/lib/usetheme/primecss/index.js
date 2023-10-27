@@ -10,7 +10,7 @@ const SELECTOR = {
     PREFIX: '',
     LAYER: {
         enable: true,
-        name: 'prime'
+        name: 'primecss'
     },
     DEFAULT_TEMPLATE: '[data-pc-section="{0}"]',
     SELECTORS: {
@@ -72,7 +72,7 @@ const PrimeCSS = {
                 const p = _path.join('.');
                 const k = Utils.object.findLast(Object.keys(alias), (_k) => p.endsWith(_k));
 
-                return k ? alias[k] : Utils.object.getOptionValue(selectors, p);
+                return k ? alias[k] : Utils.object.getSelectorOptionValue(selectors, p);
             };
 
             return _value['selector'] || _getSelectorFromPath() || defaultTemplate.replace('{0}', _key);
@@ -113,11 +113,11 @@ const PrimeCSS = {
                             case 'compounds':
                             case 'variants':
                             case 'states':
-                                computed = _generate(value, px, _selector, _keys, true);
+                                computed = _generate(value, px, _selector, path, true);
                                 break;
 
                             case 'children':
-                                computed = _generate(value, px, _selector, _keys);
+                                computed = _generate(value, px, _selector, path);
                                 break;
 
                             case 'variables':

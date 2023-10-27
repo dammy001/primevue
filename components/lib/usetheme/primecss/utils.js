@@ -74,6 +74,17 @@ const Utils = {
                     : undefined
                 : this.getItemValue(options, params);
         },
+        getSelectorOptionValue(options, key = '', params = {}) {
+            const fKeys = this.toFlatCase(key).split('.');
+            const fKey = fKeys.shift();
+            const computedOptions = !fKeys.length && this.isObject(options) ? options['selector'] || options : options;
+
+            return fKey
+                ? this.isObject(computedOptions)
+                    ? this.getSelectorOptionValue(this.getItemValue(computedOptions[Object.keys(computedOptions).find((k) => this.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
+                    : undefined
+                : this.getItemValue(computedOptions, params);
+        },
         test(regex, str) {
             if (regex) {
                 const match = regex.test(str);
