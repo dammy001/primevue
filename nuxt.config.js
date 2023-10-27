@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         alias: aliasConfig.resolve.alias
     },
     primevue: {
+        usePrimeVue: false,
         options: {
             ripple: true
         },
