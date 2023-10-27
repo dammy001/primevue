@@ -2305,6 +2305,7 @@
 
   .p-speeddial-mask {
     background-color: rgba(112, 120, 136, 0.5);
+    border-radius: 4px;
   }
 
   .p-splitbutton {
@@ -5902,5 +5903,10 @@
   }
   .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
     box-shadow: inset 0 -2px 0 0 #5E81AC;
+  }
+
+  .p-selectbutton > .p-button,
+.p-togglebutton.p-button {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 }

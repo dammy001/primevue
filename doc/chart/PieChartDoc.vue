@@ -9,19 +9,13 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
+
 export default {
     data() {
         return {
             chartData: null,
-            chartOptions: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            usePointStyle: true
-                        }
-                    }
-                }
-            },
+            chartOptions: null,
             code: {
                 basic: `
 <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
@@ -38,19 +32,12 @@ export default {
     data() {
         return {
             chartData: null,
-            chartOptions: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            usePointStyle: true
-                        }
-                    }
-                }
-            }
+            chartOptions: null
         };
     },
     mounted() {
         this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
     },
     methods: {
         setChartData() {
@@ -65,6 +52,21 @@ export default {
                         hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400')]
                     }
                 ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+
+            return {
+                plugins: {
+                    legend: {
+                        labels: {
+                            usePointStyle: true,
+                            color: textColor
+                        }
+                    }
+                }
             };
         }
     }
@@ -83,18 +85,11 @@ import { ref, onMounted } from "vue";
 
 onMounted(() => {
     chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
 });
 
 const chartData = ref();
-const chartOptions = ref({
-    plugins: {
-        legend: {
-            labels: {
-                usePointStyle: true
-            }
-        }
-    }
-});
+const chartOptions = ref();
 
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.body);
@@ -110,6 +105,22 @@ const setChartData = () => {
         ]
     };
 };
+
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--text-color');
+
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: textColor
+                }
+            }
+        }
+    };
+};
 <\/script>
 `
             }
@@ -117,10 +128,17 @@ const setChartData = () => {
     },
     mounted() {
         this.chartData = this.setChartData();
+        this.chartOptions = this.setChartOptions();
+
+        this.themeChangeListener = () => {
+            this.chartOptions = this.setChartOptions();
+        };
+
+        EventBus.on('theme-change-complete', this.themeChangeListener);
     },
     methods: {
         setChartData() {
-            const documentStyle = getComputedStyle(document.body);
+            const documentStyle = getComputedStyle(document.documentElement);
 
             return {
                 labels: ['A', 'B', 'C'],
@@ -131,6 +149,21 @@ const setChartData = () => {
                         hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400')]
                     }
                 ]
+            };
+        },
+        setChartOptions() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            const textColor = documentStyle.getPropertyValue('--text-color');
+
+            return {
+                plugins: {
+                    legend: {
+                        labels: {
+                            usePointStyle: true,
+                            color: textColor
+                        }
+                    }
+                }
             };
         }
     }

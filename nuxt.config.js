@@ -1,11 +1,11 @@
-import viteConfig from './vite.config';
+import aliasConfig from './nuxt-vite.config.js';
 
 const baseUrl = '/';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
-    modules: ['nuxt-gtag', 'nuxt-primevue'],
+    modules: ['nuxt-gtag', '~/modules/nuxt-primevue/module'],
     components: [
         '~/components',
         {
@@ -13,11 +13,15 @@ export default defineNuxtConfig({
             prefetch: false
         }
     ],
+    vite: aliasConfig,
     nitro: {
-        alias: viteConfig.resolve.alias
+        alias: aliasConfig.resolve.alias
     },
     primevue: {
-        usePrimeVue: false,
+        options: {
+            ripple: true
+        },
+        layerOrder: 'primevue',
         resolvePath: function ({ as, from, type }) {
             const resolvedPath = from.replace('primevue', '@/components/lib');
 

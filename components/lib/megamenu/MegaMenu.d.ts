@@ -99,6 +99,10 @@ export interface MegaMenuPassThroughOptions {
      */
     submenu?: MegaMenuPassThroughOptionType;
     /**
+     * Used to pass attributes to the submenu label's DOM element.
+     */
+    submenuLabel?: MegaMenuPassThroughOptionType;
+    /**
      * Used to pass attributes to the separator's DOM element.
      */
     separator?: MegaMenuPassThroughOptionType;
@@ -189,6 +193,11 @@ export interface MegaMenuContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**

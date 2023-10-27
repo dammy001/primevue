@@ -2296,6 +2296,7 @@
 
   .p-speeddial-mask {
     background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
   }
 
   .p-splitbutton {
@@ -5141,7 +5142,7 @@
   }
   .p-message .p-message-text {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
   }
   .p-message .p-message-icon {
     font-size: 1.5rem;
@@ -5650,6 +5651,11 @@
     font-weight: 700;
   }
 
+  .p-selectbutton > .p-button,
+.p-togglebutton.p-button {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
   .p-accordion .p-accordion-header .p-accordion-header-link {
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
@@ -5701,5 +5707,14 @@
 
   .p-toast-message {
     backdrop-filter: blur(10px);
+  }
+
+  .p-inline-message-text {
+    font-weight: 500;
+  }
+
+  .p-picklist-buttons .p-button,
+.p-orderlist-controls .p-button {
+    transition: opacity 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 }

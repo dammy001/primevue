@@ -300,6 +300,18 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Default slot to detect AccordionTab components."
+                        },
+                        {
+                            "name": "collapseicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom collapse icon template."
+                        },
+                        {
+                            "name": "expandicon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom expand icon template."
                         }
                     ]
                 },
@@ -836,16 +848,16 @@
             }
         }
     },
-    "animate": {
-        "description": "Animate manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load.\n\n[Live Demo](https://primevue.org/animate)",
+    "animateonscroll": {
+        "description": "AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load.\n\n[Live Demo](https://primevue.org/animateonscroll)",
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "AnimateOptions": {
-                    "description": "Defines options of Animate.",
+                "AnimateOnScrollOptions": {
+                    "description": "Defines options of AnimateOnScroll.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -854,7 +866,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Animate scroll to add when item begins to get displayed."
+                            "description": "Style class to add when item goes into viewport, use white space as a delimeter to define multiple classes."
                         },
                         {
                             "name": "leaveClass",
@@ -862,28 +874,36 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Animate scroll to add when item begins to get hidden."
+                            "description": "Style class to add when item leaves the viewport, use white space as a delimeter to define multiple classes."
                         },
                         {
-                            "name": "pt",
+                            "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<AnimateDirectivePassThroughOptions>",
+                            "type": "null | Element | Document",
                             "default": "",
-                            "description": "Used to pass attributes to DOM elements inside the component."
+                            "description": "Specifies the  `root`  option of the IntersectionObserver API"
                         },
                         {
-                            "name": "ptOptions",
+                            "name": "rootMargin",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThroughOptions",
+                            "type": "string",
                             "default": "",
-                            "description": "Used to configure passthrough(pt) options of the component."
+                            "description": "Specifies the  `rootMargin`  option of the IntersectionObserver API"
+                        },
+                        {
+                            "name": "threshold",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "readonly number[]",
+                            "default": "",
+                            "description": "Specifies the  `threshold`  option of the IntersectionObserver API"
                         }
                     ],
                     "methods": []
                 },
-                "AnimateDirectivePassThroughOptions": {
+                "AnimateOnScrollDirectivePassThroughOptions": {
                     "description": "Custom passthrough(pt) directive options.",
                     "relatedProp": "",
                     "props": [
@@ -898,17 +918,40 @@
                     ],
                     "methods": []
                 },
-                "AnimateDirectiveBinding": {
-                    "description": "Binding of Animate directive.",
+                "AnimateOnScrollDirectiveModifiers": {
+                    "description": "Defines modifiers of AnimateOnScroll.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "once",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether the scroll event listener should be removed after initial run."
+                        }
+                    ],
+                    "methods": []
+                },
+                "AnimateOnScrollDirectiveBinding": {
+                    "description": "Binding of AnimateOnScroll directive.",
                     "relatedProp": "",
                     "props": [
                         {
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "AnimateOptions",
+                            "type": "AnimateOnScrollOptions",
                             "default": "",
-                            "description": "Value of the Animate."
+                            "description": "Value of the AnimateOnScroll."
+                        },
+                        {
+                            "name": "modifiers",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AnimateOnScrollDirectiveModifiers",
+                            "default": "",
+                            "description": "Modifiers of the tooltip."
                         }
                     ],
                     "methods": [],
@@ -917,14 +960,14 @@
             }
         }
     },
-    "animate/style/AnimateStyle": {
+    "animateonscroll/style/AnimateOnScrollStyle": {
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
-                "AnimateStyle": {
+                "AnimateOnScrollStyle": {
                     "relatedProp": "",
                     "props": [
                         {
@@ -5202,7 +5245,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
+                    "extendedBy": "AccordionStyle,AccordionTabStyle,AnimateOnScrollStyle,AutoCompleteStyle,AvatarStyle,AvatarGroupStyle,BadgeStyle,BadgeDirectiveStyle,BaseComponentStyle,BaseIconStyle,BlockUIStyle,BreadcrumbStyle,ButtonStyle,CalendarStyle,CardStyle,CarouselStyle,CascadeSelectStyle,ChartStyle,CheckboxStyle,ChipStyle,ChipsStyle,ColorPickerStyle,ColumnStyle,ColumnGroupStyle,ConfirmDialogStyle,ConfirmPopupStyle,ContextMenuStyle,DataTableStyle,DataViewStyle,DataViewLayoutOptionsStyle,DeferredContentStyle,DialogStyle,DividerStyle,DockStyle,DropdownStyle,DynamicDialogStyle,EditorStyle,FieldsetStyle,AccordionStyle,FocusTrapStyle,GalleriaStyle,ImageStyle,InlineMessageStyle,InplaceStyle,InputMaskStyle,InputNumberStyle,InputSwitchStyle,InputTextStyle,KnobStyle,ListboxStyle,MegaMenuStyle,MenuStyle,MenubarStyle,MessageStyle,MultiSelectStyle,OrderListStyle,OrganizationChartStyle,OverlayPanelStyle,PaginatorStyle,PanelStyle,PanelMenuStyle,PasswordStyle,PickListStyle,PortalStyle,ProgressBarStyle,ProgressSpinnerStyle,RadioButtonStyle,RatingStyle,AccordionStyle,RowStyle,ScrollPanelStyle,ScrollTopStyle,SelectButtonStyle,SidebarStyle,SkeletonStyle,SliderStyle,SpeedDialStyle,SplitButtonStyle,SplitterStyle,SplitterPanelStyle,StepsStyle,StyleClassStyle,TabMenuStyle,TabPanelStyle,TabViewStyle,TagStyle,TerminalStyle,TextareaStyle,TieredMenuStyle,TimelineStyle,ToastStyle,ToggleButtonStyle,ToolbarStyle,TooltipStyle,TreeStyle,TreeSelectStyle,TreeTableStyle,TriStateCheckboxStyle,VirtualScrollerStyle"
                 }
             }
         }
@@ -16853,6 +16896,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -31461,6 +31512,14 @@
                             "description": "Used to pass attributes to the submenu's DOM element."
                         },
                         {
+                            "name": "submenuLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MegaMenuPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the submenu label's DOM element."
+                        },
+                        {
                             "name": "separator",
                             "optional": true,
                             "readonly": false,
@@ -31613,6 +31672,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -32202,6 +32269,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -32821,6 +32896,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         },
                         {
                             "name": "level",
@@ -36572,6 +36655,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, it removes component related styles in the core."
+                        },
+                        {
+                            "name": "closeOnEscape",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Specifies if pressing escape key should hide the dialog."
                         }
                     ],
                     "methods": []
@@ -38032,6 +38123,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -38132,6 +38231,22 @@
                             "type": "object",
                             "default": "",
                             "description": "Submenuicon elemnt binding"
+                        },
+                        {
+                            "name": "headerIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Header icon element binding"
+                        },
+                        {
+                            "name": "headerLabel",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Header label element binding"
                         }
                     ],
                     "methods": []
@@ -42809,8 +42924,8 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
-                            "description": "Whether selection can not be cleared.",
+                            "default": "true",
+                            "description": "Whether selection can be cleared.",
                             "deprecated": "Use 'allowEmpty' property instead."
                         },
                         {
@@ -48794,6 +48909,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Current focused state of menuitem as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of menuitem as a boolean."
                         }
                     ],
                     "methods": []
@@ -50952,12 +51075,20 @@
                             "description": "When present, it adds a custom delay to the tooltip's hiding."
                         },
                         {
+                            "name": "autoHide",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether to hide tooltip when hovering over tooltip content."
+                        },
+                        {
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
                             "type": "PassThrough<TooltipDirectivePassThroughOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to DOM elements inside the component."
+                            "description": "Uses to pass attributes to DOM elements inside the component."
                         },
                         {
                             "name": "ptOptions",
@@ -53845,29 +53976,10 @@
                             "description": "Custom loading icon template."
                         },
                         {
-                            "name": "togglericon",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom toggler icon template."
-                        },
-                        {
                             "name": "checkboxicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom checkbox icon template."
-                        },
-                        {
-                            "name": "sorticon",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 text-primary-700\">sorted</span>: <span class=\"text-primary-500\">TreeNode</span>, <span class=\"text-primary-300\">// Whether or not column is sorted</span>\n  \t <span class=\"ml-3 text-primary-700\">sortOrder</span>: <span class=\"text-primary-500\">boolean</span>, <span class=\"text-primary-300\">// Current sort order</span>\n }",
-                                    "description": "sorticon slot's params."
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom sort icon template."
                         },
                         {
                             "name": "paginatorfirstpagelinkicon",

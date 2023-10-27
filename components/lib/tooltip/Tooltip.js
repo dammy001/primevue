@@ -17,6 +17,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipIdAttr = UniqueComponentId() + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
+            target.$_ptooltipAutoHide = true;
         } else if (typeof options.value === 'object' && options.value) {
             if (ObjectUtils.isEmpty(options.value.value) || options.value.value.trim() === '') return;
             else {
@@ -28,6 +29,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipIdAttr = options.value.id || UniqueComponentId() + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
+                target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
             }
         }
 
@@ -55,6 +57,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
+            target.$_ptooltipAutoHide = true;
 
             this.bindEvents(target, options);
         } else if (typeof options.value === 'object' && options.value) {
@@ -71,6 +74,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
+                target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
 
                 this.bindEvents(target, options);
             }
@@ -149,7 +153,21 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
 
-            this.hide(el, hideDelay);
+            const autoHide = el.$_ptooltipAutoHide;
+
+            if (!autoHide) {
+                const valid =
+                    DomHandler.getAttribute(event.target, 'data-pc-name') === 'tooltip' ||
+                    DomHandler.getAttribute(event.target, 'data-pc-section') === 'arrow' ||
+                    DomHandler.getAttribute(event.target, 'data-pc-section') === 'text' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-name') === 'tooltip' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-section') === 'arrow' ||
+                    DomHandler.getAttribute(event.relatedTarget, 'data-pc-section') === 'text';
+
+                !valid && this.hide(el, hideDelay);
+            } else {
+                this.hide(el, hideDelay);
+            }
         },
         onFocus(event, options) {
             const el = event.currentTarget;
@@ -193,6 +211,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 }
 
                 window.removeEventListener('resize', onWindowResize);
+            });
+
+            tooltipElement.addEventListener('mouseleave', function onTooltipLeave() {
+                $this.hide(el);
+
+                tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
             });
 
             this.bindScrollListener(el);

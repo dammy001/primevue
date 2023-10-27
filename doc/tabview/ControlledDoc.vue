@@ -3,27 +3,27 @@
         <p>Tabs can be controlled programmatically using <i>activeIndex</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
-                <p>
+                <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </TabPanel>
             <TabPanel header="Header II">
-                <p>
+                <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
                     ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
                 </p>
             </TabPanel>
             <TabPanel header="Header III">
-                <p>
+                <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
                     officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
                 </p>
@@ -40,27 +40,27 @@ export default {
             active: 0,
             code: {
                 basic: `
-<div class="py-2">
-    <Button @click="active = 0" text label="Activate 1st" />
-    <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-    <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+<div class="flex mb-2 gap-2 justify-content-end">
+    <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+    <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+    <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
 </div>
 
 <TabView v-model:activeIndex="active">
     <TabPanel header="Header I">
-        <p>
+        <p class="m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </TabPanel>
     <TabPanel header="Header II">
-        <p>
+        <p class="m-0">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
             ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
         </p>
     </TabPanel>
     <TabPanel header="Header III">
-        <p>
+        <p class="m-0">
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
             officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
         </p>
@@ -70,27 +70,27 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
-                <p>
+                <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </TabPanel>
             <TabPanel header="Header II">
-                <p>
+                <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
                     ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
                 </p>
             </TabPanel>
             <TabPanel header="Header III">
-                <p>
+                <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
                     officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
                 </p>
@@ -112,27 +112,27 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="py-2">
-            <Button @click="active = 0" text label="Activate 1st" />
-            <Button @click="active = 1" text class="mr-2" label="Activate 2nd" />
-            <Button @click="active = 2" text class="mr-2" label="Activate 3rd" />
+        <div class="flex mb-2 gap-2 justify-content-end">
+            <Button @click="active = 0" rounded label="1" class="w-2rem h-2rem p-0" :outlined="active !== 0" />
+            <Button @click="active = 1" rounded label="2" class="w-2rem h-2rem p-0" :outlined="active !== 1" />
+            <Button @click="active = 2" rounded label="3" class="w-2rem h-2rem p-0" :outlined="active !== 2" />
         </div>
 
         <TabView v-model:activeIndex="active">
             <TabPanel header="Header I">
-                <p>
+                <p class="m-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </TabPanel>
             <TabPanel header="Header II">
-                <p>
+                <p class="m-0">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
                     ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
                 </p>
             </TabPanel>
             <TabPanel header="Header III">
-                <p>
+                <p class="m-0">
                     At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
                     officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
                 </p>

@@ -14,11 +14,14 @@ PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homep
 PrimeVue is available at [npm](https://www.npmjs.com/package/primevue).
 
 ```
-// with npm
+# Using npm
 npm install primevue
 
-// with yarn
+# Using yarn
 yarn add primevue
+
+# Using pnpm
+pnpm add primevue
 ```
 
 ## Plugin
@@ -83,36 +86,63 @@ Component prop names are described as camel case throughout the documentation ho
 
 ## Nuxt Integration
 
-PrimeVue can easily be used with Nuxt 3 using a custom plugin.
+The [nuxt-primevue](https://www.npmjs.com/package/nuxt-primevue) package is the official module by PrimeTek.
 
-**nuxt.config.js**
+```
+# Using npm
+npm install --save-dev nuxt-primevue
 
-Open the nuxt configuration file and add the css dependencies.
+# Using yarn
+yarn add --dev nuxt-primevue
+
+# Using pnpm
+pnpm add -D nuxt-primevue
+```
+
+The module is enabled by adding `nuxt-primevue` to the modules option. Configuration values are defined with the `primevue` property.
 
 ```javascript
 export default defineNuxtConfig({
-    css: ['primevue/resources/themes/lara-light-teal/theme.css'],
-    build: {
-        transpile: ['primevue']
+    modules: ['nuxt-primevue'],
+    primevue: {
+        /* Options */
     }
 });
 ```
 
-**primevue.js**
-
-Create a file like **primevue.js** under the plugins directory for the configuration.
+Whether to install the PrimeVue plugin, defaults to true. Disable this option if you prefer to configure PrimeVue manually e.g. with a Nuxt plugin.
 
 ```javascript
-import { defineNuxtPlugin } from '#app';
-import PrimeVue from 'primevue/config';
-import Button from 'primevue/button';
+primevue: {
+    usePrimeVue: true;
+}
+```
 
-export default defineNuxtPlugin((nuxtApp) => {
-    nuxtApp.vueApp.use(PrimeVue, { ripple: true });
-    nuxtApp.vueApp.component('Button', Button);
-    //other components that you need
+The names of the components, directives and composables to import and register are provided using the include property. When the value is ignored or set using the \* alias, all of the components, directives and composables are registered respectively.
+
+```javascript
+primevue: {
+    components: {
+        include: ['Button', 'DataTable']
+    },
+    directives: {
+        include: ['Ripple', 'Tooltip']
+    },
+    composables: {
+        include: ['useStyle']
+    }
+}
+```
+
+In styled mode, the theme can be defined at Nuxt configuration with the css property. Note that this only applies to styled mode, in unstyled mode a theme file is not required as styling is done externally.
+
+```javascript
+export default defineNuxtConfig({
+    css: ['primevue/resources/themes/lara-dark-teal/theme.css']
 });
 ```
+
+For detailed [information](https://primevue.org/nuxt)
 
 ## Example
 
@@ -126,7 +156,7 @@ We've created various samples for the popular options in the Vue ecosystem. Visi
 
 ### Nuxt
 
-<a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt3-quickstart">
+<a href="https://github.com/primefaces/primevue-examples/tree/main/nuxt-quickstart">
   <img src="https://primefaces.org/cdn/primevue/images/logos/nuxt.svg" alt="nuxt" width="112" height="112">
 </a>
 

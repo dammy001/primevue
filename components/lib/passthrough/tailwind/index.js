@@ -325,13 +325,13 @@ export default {
             class: 'overflow-y-hidden overscroll-contain overscroll-auto scroll-smooth [&::-webkit-scrollbar]:hidden' // Overflow and scrollbar styles.
         },
         previousButton: {
-            class: ['h-full flex items-center justify-center absolute top-0 z-20', 'left-0', 'bg-white text-blue-500 w-12 shadow-md rounded-none', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 ]'] // Flex and absolute positioning styles.
+            class: ['h-full flex items-center justify-center !absolute top-0 z-20', 'left-0', 'bg-white text-blue-500 w-12 shadow-md rounded-none', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 ]'] // Flex and absolute positioning styles.
         },
         nextButton: {
-            class: ['h-full flex items-center justify-center absolute top-0 z-20', 'right-0', 'bg-white text-blue-500 w-12 shadow-md rounded-none', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 '] // Flex and absolute positioning styles.
+            class: ['h-full flex items-center justify-center !absolute top-0 z-20', 'right-0', 'bg-white text-blue-500 w-12 shadow-md rounded-none', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 '] // Flex and absolute positioning styles.
         },
         nav: {
-            class: ['flex flex-1 list-none m-0 p-0', 'bg-white border border-gray-300 border-0 border-b-2', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 '] // Flex, list, margin, padding, and border styles.
+            class: ['flex flex-1 list-none m-0 p-0', 'bg-transparent border border-gray-300 border-0 border-b-2', 'dark:border-blue-900/40 dark:text-white/80 '] // Flex, list, margin, padding, and border styles.
         },
         tabpanel: {
             header: ({ props }) => ({
@@ -340,7 +340,7 @@ export default {
             headerAction: ({ parent, context }) => ({
                 class: [
                     'items-center cursor-pointer flex overflow-hidden relative select-none text-decoration-none select-none', // Flex and overflow styles.
-                    'border-b-2 p-5 font-bold rounded-t-lg transition-shadow duration-200 m-0', // Border, padding, font, and transition styles.
+                    'border-b-2 p-5 font-bold rounded-t-md transition-shadow duration-200 m-0', // Border, padding, font, and transition styles.
                     'transition-colors duration-200', // Transition duration style.
                     'focus:outline-none focus:outline-offset-0 focus:shadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]', // Focus styles.
                     {
@@ -355,7 +355,7 @@ export default {
                 class: ['leading-none whitespace-nowrap'] // Leading and whitespace styles.
             },
             content: {
-                class: ['bg-white p-5 border-0 text-gray-700 rounded-bl-2xl rounded-br-2xl', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80'] // Background, padding, border, and text styles.
+                class: ['bg-white p-5 border-0 text-gray-700 rounded-bl-md rounded-br-md', 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80'] // Background, padding, border, and text styles.
             }
         }
     },
@@ -441,7 +441,7 @@ export default {
             ]
         }),
         footer: {
-            class: ['shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
+            class: ['flex gap-2 shrink-0 justify-end align-center', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80']
         },
         mask: ({ props }) => ({
             class: ['transition duration-200', { 'bg-black/40': props.modal }]
@@ -503,7 +503,7 @@ export default {
             class: 'ml-4'
         },
         footer: {
-            class: 'text-right px-5 py-5 pt-0'
+            class: 'flex gap-2 justify-end align-center text-right px-5 py-5 pt-0'
         },
         transition: TRANSITIONS.overlay
     },
@@ -512,7 +512,7 @@ export default {
             class: [
                 'bg-white text-gray-700 border-0 rounded-md shadow-lg',
                 'z-40 transform origin-center',
-                'absolute left-0 top-0',
+                'absolute left-0 top-0 mt-3',
                 'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900',
                 'dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80'
             ]
@@ -740,31 +740,53 @@ export default {
     button: {
         root: ({ props, context }) => ({
             class: [
-                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom h-full',
+                'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom',
                 'transition duration-200 ease-in-out',
-                'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]', // Primary button focus
+                'focus:outline-none focus:outline-offset-0',
                 {
-                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
-                    'text-blue-600 bg-transparent border-transparent': props.link
+                    'text-white dark:text-gray-900 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:border-blue-600 dark:hover:border-blue-500 focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
+                    'text-blue-600 bg-transparent border-transparent focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.link
                 },
                 {
-                    'text-white bg-gray-500 border border-gray-500 hover:bg-gray-600 hover:border-gray-600': props.severity === 'secondary' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-green-500 border border-green-500 hover:bg-green-600 hover:border-green-600': props.severity === 'success' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-blue-500 border border-blue-500 hover:bg-blue-600 hover:border-blue-600': props.severity === 'info' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-orange-500 border border-orange-500 hover:bg-orange-600 hover:border-orange-600': props.severity === 'warning' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-purple-500 border border-purple-500 hover:bg-purple-600 hover:border-purple-600': props.severity === 'help' && !props.text && !props.outlined && !props.plain,
-                    'text-white bg-red-500 border border-red-500 hover:bg-red-600 hover:border-red-600': props.severity === 'danger' && !props.text && !props.outlined && !props.plain
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(176,185,198,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(203,213,225,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'secondary',
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(136,234,172,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(134,239,172,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'success',
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(157,193,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(147,197,253,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'info',
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(250,207,133,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,211,77,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'warning',
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(212,170,251,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(216,180,254,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'help',
+                    'focus:shadow-[0_0_0_2px_rgba(255,255,255,1),0_0_0_4px_rgba(247,162,162,1),0_1px_2px_0_rgba(0,0,0,1)] dark:focus:shadow-[0_0_0_2px_rgba(28,33,39,1),0_0_0_4px_rgba(252,165,165,0.7),0_1px_2px_0_rgba(0,0,0,0)]':
+                        props.severity === 'danger'
+                },
+                {
+                    'text-white dark:text-gray-900 bg-gray-500 dark:bg-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-600 dark:hover:bg-gray-500 hover:border-gray-600 dark:hover:border-gray-500':
+                        props.severity === 'secondary' && !props.text && !props.outlined && !props.plain,
+                    'text-white dark:text-gray-900 bg-green-500 dark:bg-green-400 border border-green-500 dark:border-green-400 hover:bg-green-600 dark:hover:bg-green-500 hover:border-green-600 dark:hover:border-green-500':
+                        props.severity === 'success' && !props.text && !props.outlined && !props.plain,
+                    'text-white dark:text-gray-900 dark:bg-blue-400 bg-blue-500 dark:bg-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-600 hover:border-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500':
+                        props.severity === 'info' && !props.text && !props.outlined && !props.plain,
+                    'text-white dark:text-gray-900 bg-orange-500 dark:bg-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-600 dark:hover:bg-orange-500 hover:border-orange-600 dark:hover:border-orange-500':
+                        props.severity === 'warning' && !props.text && !props.outlined && !props.plain,
+                    'text-white dark:text-gray-900 bg-purple-500 dark:bg-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-600 dark:hover:bg-purple-500 hover:border-purple-600 dark:hover:border-purple-500':
+                        props.severity === 'help' && !props.text && !props.outlined && !props.plain,
+                    'text-white dark:text-gray-900 bg-red-500 dark:bg-red-400 border border-red-500 dark:border-red-400 hover:bg-red-600 dark:hover:bg-red-500 hover:border-red-600 dark:hover:border-red-500':
+                        props.severity === 'danger' && !props.text && !props.outlined && !props.plain
                 },
                 { 'shadow-lg': props.raised },
                 { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
                 {
                     'bg-transparent border-transparent': props.text && !props.plain,
-                    'text-blue-500 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
-                    'text-gray-500 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
-                    'text-green-500 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
-                    'text-orange-500 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
-                    'text-purple-500 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
-                    'text-red-500 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
+                    'text-blue-500 dark:text-blue-400 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
+                    'text-gray-500 dark:text-gray-400 hover:bg-gray-300/20': props.text && props.severity === 'secondary' && !props.plain,
+                    'text-green-500 dark:text-green-400 hover:bg-green-300/20': props.text && props.severity === 'success' && !props.plain,
+                    'text-orange-500 dark:text-orange-400 hover:bg-orange-300/20': props.text && props.severity === 'warning' && !props.plain,
+                    'text-purple-500 dark:text-purple-400 hover:bg-purple-300/20': props.text && props.severity === 'help' && !props.plain,
+                    'text-red-500 dark:text-red-400 hover:bg-red-300/20': props.text && props.severity === 'danger' && !props.plain
                 },
                 { 'shadow-lg': props.raised && props.text },
                 {
@@ -774,14 +796,15 @@ export default {
                 },
                 {
                     'bg-transparent border': props.outlined && !props.plain,
-                    'text-blue-500 border border-blue-500 hover:bg-blue-300/20': props.outlined && (props.severity === null || props.severity === 'info') && !props.plain,
-                    'text-gray-500 border border-gray-500 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
-                    'text-green-500 border border-green-500 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
-                    'text-orange-500 border border-orange-500 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
-                    'text-purple-500 border border-purple-500 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
-                    'text-red-500 border border-red-500 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
+                    'text-blue-500 dark:text-blue-400 border border-blue-500 dark:border-blue-400 hover:bg-blue-300/20': props.outlined && (props.severity === null || props.severity === 'info') && !props.plain,
+                    'text-gray-500 dark:text-gray-400 border border-gray-500 dark:border-gray-400 hover:bg-gray-300/20': props.outlined && props.severity === 'secondary' && !props.plain,
+                    'text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 hover:bg-green-300/20': props.outlined && props.severity === 'success' && !props.plain,
+                    'text-orange-500 dark:text-orange-400 border border-orange-500 dark:border-orange-400 hover:bg-orange-300/20': props.outlined && props.severity === 'warning' && !props.plain,
+                    'text-purple-500 dark:text-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-300/20': props.outlined && props.severity === 'help' && !props.plain,
+                    'text-red-500 dark:text-red-400 border border-red-500 dark:border-red-400 hover:bg-red-300/20': props.outlined && props.severity === 'danger' && !props.plain
                 },
                 { 'px-4 py-3 text-base': props.size === null, 'text-xs py-2 px-3': props.size === 'small', 'text-xl py-3 px-4': props.size === 'large' },
+                { 'flex-column': props.iconPos == 'top' || props.iconPos == 'bottom' },
                 { 'opacity-60 pointer-events-none cursor-default': context.disabled }
             ]
         }),
@@ -792,7 +815,8 @@ export default {
                 'font-bold',
                 {
                     'hover:underline': props.link
-                }
+                },
+                { 'invisible w-0': props.label == null }
             ]
         }),
         icon: ({ props }) => ({
@@ -800,9 +824,9 @@ export default {
                 'mx-0',
                 {
                     'mr-2': props.iconPos == 'left' && props.label != null,
-                    'ml-2': props.iconPos == 'right' && props.label != null,
+                    'ml-2 order-1': props.iconPos == 'right' && props.label != null,
                     'mb-2': props.iconPos == 'top' && props.label != null,
-                    'mt-2': props.iconPos == 'bottom' && props.label != null
+                    'mt-2 order-2': props.iconPos == 'bottom' && props.label != null
                 }
             ]
         }),
@@ -1309,12 +1333,10 @@ export default {
             class: [
                 'cursor-pointer font-normal overflow-hidden relative whitespace-nowrap',
                 'm-0 p-3 border-0  transition-shadow duration-200 rounded-none',
-                'dark:text-white/80 dark:hover:bg-gray-800',
-                'hover:text-gray-700 hover:bg-gray-200',
                 {
-                    'text-gray-700': !context.focused && !context.selected,
-                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90': context.focused && !context.selected,
-                    'bg-blue-400 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
+                    'text-gray-700 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': !context.focused && !context.selected,
+                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': context.focused && !context.selected,
+                    'bg-blue-100 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
                     'bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80': !context.focused && context.selected
                 }
             ]
@@ -1354,12 +1376,18 @@ export default {
                 }
             ]
         }),
-        input: {
+        input: ({ props }) => ({
             class: [
-                'font-sans text-base text-gray-600 dark:text-white/80 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg',
-                'hover:border-blue-500' //Hover
+                'font-sans text-base text-gray-600 dark:text-white/80 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none',
+                'hover:border-blue-500',
+                { 'rounded-lg': !props.showIcon, 'border-r-0 rounded-l-lg': props.showIcon }
             ]
-        },
+        }),
+        dropdownbutton: ({ props }) => ({
+            root: {
+                class: [{ 'rounded-l-none': props.showIcon }]
+            }
+        }),
         panel: ({ props }) => ({
             class: [
                 'bg-white dark:bg-gray-900',
@@ -1502,12 +1530,10 @@ export default {
             class: [
                 'cursor-pointer font-normal overflow-hidden relative whitespace-nowrap',
                 'm-0 p-3 border-0  transition-shadow duration-200 rounded-none',
-                'dark:text-white/80 dark:hover:bg-gray-800',
-                'hover:text-gray-700 hover:bg-gray-200',
                 {
-                    'text-gray-700': !context.focused && !context.selected,
-                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90': context.focused && !context.selected,
-                    'bg-blue-400 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
+                    'text-gray-700 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': !context.focused && !context.selected,
+                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': context.focused && !context.selected,
+                    'bg-blue-100 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
                     'bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80': !context.focused && context.selected
                 }
             ]
@@ -1611,12 +1637,10 @@ export default {
             class: [
                 'cursor-pointer font-normal overflow-hidden relative whitespace-nowrap',
                 'm-0 p-3 border-0  transition-shadow duration-200 rounded-none',
-                'dark:text-white/80 dark:hover:bg-gray-800',
-                'hover:text-gray-700 hover:bg-gray-200',
                 {
-                    'text-gray-700': !context.focused && !context.selected,
-                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90': context.focused && !context.selected,
-                    'bg-blue-400 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
+                    'text-gray-700 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': !context.focused && !context.selected,
+                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': context.focused && !context.selected,
+                    'bg-blue-100 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
                     'bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80': !context.focused && context.selected
                 }
             ]
@@ -1748,12 +1772,10 @@ export default {
             class: [
                 'cursor-pointer font-normal overflow-hidden relative whitespace-nowrap',
                 'm-0 p-3 border-0  transition-shadow duration-200 rounded-none',
-                'dark:text-white/80 dark:hover:bg-gray-800',
-                'hover:text-gray-700 hover:bg-gray-200',
                 {
-                    'text-gray-700': !context.focused && !context.selected,
-                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90': context.focused && !context.selected,
-                    'bg-blue-500 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
+                    'text-gray-700 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': !context.focused && !context.selected,
+                    'bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90 hover:text-gray-700 hover:bg-gray-200 dark:text-white/80 dark:hover:bg-gray-800': context.focused && !context.selected,
+                    'bg-blue-100 text-blue-700 dark:bg-blue-400 dark:text-white/80': context.focused && context.selected,
                     'bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80': !context.focused && context.selected
                 }
             ]
@@ -2202,8 +2224,8 @@ export default {
                 'cursor-pointer flex items-center no-underline overflow-hidden relative',
                 'py-3 px-5 select-none',
                 {
-                    'max-[960px]:pl-9': context.level === 1,
-                    'max-[960px]:pl-14': context.level === 2
+                    'pl-9 sm:pl-5': context.level === 1,
+                    'pl-14 sm:pl-5': context.level === 2
                 }
             ]
         }),
@@ -2212,9 +2234,8 @@ export default {
         },
         submenuicon: ({ props }) => ({
             class: [
-                'max-[960px]:ml-auto',
                 {
-                    'ml-2': props.root,
+                    'ml-auto sm:ml-2': props.root,
                     'ml-auto': !props.root
                 }
             ]
@@ -3634,6 +3655,9 @@ export default {
                     'dark:text-white/70' //Dark Mode
                 ]
             }),
+            sort: {
+                class: 'inline-block align-middle'
+            },
             sorticon: ({ context }) => ({
                 class: ['ml-2', context.sorted ? 'text-blue-700 dark:text-white/80' : 'text-slate-700 dark:text-white/70']
             }),

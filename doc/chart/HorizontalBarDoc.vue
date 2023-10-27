@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import EventBus from '@/layouts/AppEventBus';
+
 export default {
     data() {
         return {
@@ -72,7 +74,7 @@ export default {
                 plugins: {
                     legend: {
                         labels: {
-                            fontColor: textColor
+                            color: textColor
                         }
                     }
                 },
@@ -157,7 +159,7 @@ const setChartOptions = () => {
         plugins: {
             legend: {
                 labels: {
-                    fontColor: textColor
+                    color: textColor
                 }
             }
         },
@@ -194,6 +196,12 @@ const setChartOptions = () => {
     mounted() {
         this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
+
+        this.themeChangeListener = () => {
+            this.chartOptions = this.setChartOptions();
+        };
+
+        EventBus.on('theme-change-complete', this.themeChangeListener);
     },
     methods: {
         setChartData() {
@@ -230,7 +238,7 @@ const setChartOptions = () => {
                 plugins: {
                     legend: {
                         labels: {
-                            fontColor: textColor
+                            color: textColor
                         }
                     }
                 },

@@ -12,7 +12,7 @@
 
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
     .layout-topbar-inner {   
         padding-left: 2rem;
         padding-right: 2rem;
@@ -93,10 +93,6 @@
         display: none;
     }
 
-    .doc-tabmenu {
-        margin-right: 0;
-    }
-
     .video-container {
         position: relative;
         width: 100%;
@@ -125,6 +121,12 @@
     .blocked-scroll {
         overflow: hidden;
         padding-right: var(--scrollbar-width);
+    }
+}
+
+@media (max-width: 768px) {
+    .DocSearch-Container {
+        position: fixed !important;
     }
 }
 

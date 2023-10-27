@@ -2301,6 +2301,7 @@
 
   .p-speeddial-mask {
     background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
   }
 
   .p-splitbutton {
@@ -5706,6 +5707,11 @@
 
   .p-button .p-button-label {
     font-weight: 700;
+  }
+
+  .p-selectbutton > .p-button,
+.p-togglebutton.p-button {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
 
   .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {

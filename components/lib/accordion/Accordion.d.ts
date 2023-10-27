@@ -174,6 +174,14 @@ export interface AccordionSlots {
      * Default slot to detect AccordionTab components.
      */
     default(): VNode[];
+    /**
+     * Custom collapse icon template.
+     */
+    collapseicon(): VNode[];
+    /**
+     * Custom expand icon template.
+     */
+    expandicon(): VNode[];
 }
 
 /**

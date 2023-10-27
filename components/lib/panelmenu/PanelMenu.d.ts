@@ -175,6 +175,11 @@ export interface PanelMenuContext {
      * @defaultValue false
      */
     focused: boolean;
+    /**
+     * Current disabled state of menuitem as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
 }
 
 /**
@@ -228,6 +233,14 @@ export interface PanelMenuRouterBindProps {
      * Submenuicon elemnt binding
      */
     submenuicon: object;
+    /**
+     * Header icon element binding
+     */
+    headerIcon: object;
+    /**
+     * Header label element binding
+     */
+    headerLabel: object;
 }
 
 /**

@@ -16,6 +16,11 @@
                     "name": "Nuxt",
                     "to": "/nuxt",
                     "badge": "NEW"
+                },
+                {
+                    "name": "Playground",
+                    "to": "/playground",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -409,8 +414,8 @@
                             "to": "/progressspinner"
                         },
                         {
-                            "name": "Animate",
-                            "to": "/animate"
+                            "name": "AnimateOnScroll",
+                            "to": "/animateonscroll"
                         },
                         {
                             "name": "Ripple",
@@ -488,8 +493,7 @@
         {
             "name": "Tailwind",
             "icon": "pi pi-heart",
-            "to": "/tailwind",
-            "badge": "NEW"
+            "to": "/tailwind"
         },
         {
             "name": "Figma UI Kit",
@@ -579,7 +583,7 @@
                 },
                 {
                     "name": "Twitter",
-                    "href": "https://twitter.com/primevue?lang=en"
+                    "href": "https://twitter.com/primevue"
                 },
                 {
                     "name": "Newsletter",

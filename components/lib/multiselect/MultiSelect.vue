@@ -770,12 +770,13 @@ export default {
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
+            const selectedItemsLabel = this.$primevue.config.locale.selectionMessage || this.selectedItemsLabel;
 
-            if (pattern.test(this.selectedItemsLabel)) {
-                return this.selectedItemsLabel.replace(this.selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
+            if (pattern.test(selectedItemsLabel)) {
+                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
             }
 
-            return this.selectedItemsLabel;
+            return selectedItemsLabel;
         },
         onToggleAll(event) {
             if (this.selectAll !== null) {
@@ -803,7 +804,7 @@ export default {
             return this.isValidOption(option) && this.getOptionLabel(option).toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
-            return option && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
+            return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);

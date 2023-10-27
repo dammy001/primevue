@@ -29,6 +29,7 @@ pre[class*="language-"] {
     padding: 0;
     max-height: 40rem;
     overflow: auto;
+    color-scheme: dark;
 
     &:before, &:after {
         display: none !important;
@@ -132,12 +133,11 @@ pre[class*="language-"] {
 pre[class*="language-"] {    
     code {
         background: var(--demo-code-bg);
-        transition: background-color .5s, border-color .5s;
     }
 }
 
 .layout-light {
-    &[data-p-theme^="md-"] {
+    &[data-p-theme^="md"] {
         pre[class*="language-"] {    
             code {
                 background: var(--surface-900);
