@@ -15,9 +15,10 @@
                         <a href="https://apollo.primevue.org" class="flex-1 p-button p-component" rel="noopener noreferrer" target="_blank">
                             <span class="p-button-label white-space-nowrap">Preview</span>
                         </a>
-                        <a href="https://www.primefaces.org/layouts/apollo-vue" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer" target="_blank">
+
+                        <router-link to="/templates/apollo" class="flex-1 p-button p-component p-button-outlined" rel="noopener noreferrer">
                             <span class="p-button-label white-space-nowrap">Learn More</span>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>
