@@ -3,7 +3,8 @@ import Utils from './utils.js';
 const VARIABLE = {
     PREFIX: 'p',
     SELECTOR: ':root',
-    EXCLUDED_KEY_REGEX: /^(global|root)$/gi
+    EXCLUDED_KEY_REGEX: /^(global|root)$/gi,
+    TRANSFORM: 'strict' // strict | lenient
 };
 
 const SELECTOR = {
@@ -12,14 +13,15 @@ const SELECTOR = {
         enable: true,
         name: 'primecss'
     },
-    DEFAULT_TEMPLATE: '[data-pc-section="{0}"]',
+    DEFAULT_TEMPLATE: '{0}',
     SELECTORS: {
         global: 'body'
     },
     ALIAS: {
         after: ':after',
         hover: ':hover',
-        focus: ':focus'
+        focus: ':focus',
+        lastChild: ':last-child'
     }
 };
 
@@ -29,32 +31,39 @@ const EXCLUDED_KEY_REGEX_FOR_FIGMA = /^(typography)$/gi;
 const PrimeCSS = {
     generate(theme, options = {}) {
         const { variableOptions = {}, selectorOptions = {} } = options;
-        const { prefix = VARIABLE.PREFIX, enable = true, selector: variableSelector = VARIABLE.SELECTOR, excludedKeyRegex = VARIABLE.EXCLUDED_KEY_REGEX } = variableOptions;
+        const { prefix = VARIABLE.PREFIX, enable = true, transform = VARIABLE.TRANSFORM, selector: variableSelector = VARIABLE.SELECTOR, excludedKeyRegex = VARIABLE.EXCLUDED_KEY_REGEX } = variableOptions;
         const { prefix: selectorPrefix = SELECTOR.PREFIX, layer = SELECTOR.LAYER, selectors = SELECTOR.SELECTORS, alias = SELECTOR.ALIAS, defaultTemplate = SELECTOR.DEFAULT_TEMPLATE } = selectorOptions;
 
         const exclusiveProperties = ['box-shadow'];
+        const isLenientTransform = transform === 'lenient';
+        const variablesInValue = new Set();
 
-        const _getProperties = (_properties, _prefix = '', _property = '') => {
+        const _getProperties = (_properties, _prefix = '', _name = '', _property = '') => {
             return Object.entries(_properties).reduce(
                 (acc, [key, value]) => {
-                    const { styles, variables, values } = acc;
+                    const { styles, variables, values, computedValues, tokens } = acc;
                     const k = Utils.object.toKebabCase(key);
-                    const px = `${_prefix}-${k}`;
+                    const px = Utils.object.toNormalizePrefix(`${_prefix}-${k}`);
                     const pr = _property ? `${_property}-${k}` : k;
                     const v = Utils.object.toValue(value);
 
                     if (Utils.object.isObject(v) || exclusiveProperties.some((expr) => expr === k)) {
-                        const computed = k === 'box-shadow' ? Utils.style.getBoxShadow(v, _prefix, [EXCLUDED_KEY_REGEX, excludedKeyRegex]) : _getProperties(v, px, pr);
+                        const computed = k === 'box-shadow' ? Utils.style.getBoxShadow(v, _prefix, [EXCLUDED_KEY_REGEX, excludedKeyRegex]) : _getProperties(v, px, _name, pr);
 
                         Utils.object.merge(styles, computed.styles);
+                        Utils.object.merge(tokens, computed.tokens);
                         enable && Utils.object.merge(variables, computed.variables);
                         values[key] = computed.values;
+                        computedValues[key] = computed.computedValues;
                     } else {
                         const computedValue = Utils.object.getVariableValue(v, px, prefix, [EXCLUDED_KEY_REGEX, excludedKeyRegex]);
 
-                        Utils.object.setProperty(styles, pr, `var(--${px})`);
+                        Utils.object.setProperty(styles, pr, isLenientTransform ? computedValue : `var(--${px})`);
                         enable && Utils.object.setProperty(variables, `--${px}`, computedValue);
-                        values[key] = computedValue;
+                        values[key] = v;
+                        computedValues[key] = computedValue;
+                        tokens.push(Utils.object.getToken(px, prefix, _name));
+                        isLenientTransform && Utils.object.findVariableInValue(v, prefix, [EXCLUDED_KEY_REGEX, excludedKeyRegex]).forEach((vr) => variablesInValue.add(vr));
                     }
 
                     return acc;
@@ -62,7 +71,9 @@ const PrimeCSS = {
                 {
                     styles: [],
                     variables: [],
-                    values: {}
+                    values: {},
+                    computedValues: {},
+                    tokens: []
                 }
             );
         };
@@ -97,14 +108,19 @@ const PrimeCSS = {
                                 const _value = Utils.object.toValue(value);
                                 const [name, ...rest] = _keys;
 
-                                computed = _getProperties(_value, px);
+                                computed = _getProperties(_value, px, name);
                                 computed.styles = [Utils.object.getRule(`${_selector}${s}`, computed.styles.join(''))];
                                 computed.properties = [
                                     {
                                         groupBy: name,
                                         key: rest.join('.'),
+                                        path: path.join('.'),
+                                        token: Utils.object.getToken(px, prefix, name),
                                         prefix: px,
-                                        properties: computed.values
+                                        selector: `${_selector}${s}`,
+                                        properties: computed.values,
+                                        computedProperties: computed.computedValues,
+                                        tokens: computed.tokens
                                     }
                                 ];
 
@@ -149,6 +165,7 @@ const PrimeCSS = {
         };
 
         const { styles, variables, properties } = _generate(theme, prefix, selectorPrefix, undefined, !!selectorPrefix);
+        const _variables = isLenientTransform ? variables.filter((vr) => variablesInValue.has(vr.split(':')[0])) : variables;
 
         return {
             styles: {
@@ -156,8 +173,8 @@ const PrimeCSS = {
                 css: layer.enable ? Utils.object.getRule(`@layer ${layer.name || ''}`, styles.join('')) : styles.join('')
             },
             variables: {
-                value: variables,
-                css: enable ? Utils.object.getRule(variableSelector, variables.join('')) : ''
+                value: _variables,
+                css: enable ? Utils.object.getRule(variableSelector, _variables.join('')) : ''
             },
             properties: {
                 value: properties,
@@ -170,7 +187,7 @@ const PrimeCSS = {
 
         const _toVariables = (_theme, _prefix = '') => {
             return Object.entries(_theme).reduce((acc, [key, value]) => {
-                const px = Utils.object.test(EXCLUDED_KEY_REGEX, key) || Utils.object.test(excludedKeyRegex, key) ? _prefix : `${_prefix}-${Utils.object.toKebabCase(key)}`;
+                const px = Utils.object.toNormalizePrefix(Utils.object.test(EXCLUDED_KEY_REGEX, key) || Utils.object.test(excludedKeyRegex, key) ? _prefix : `${_prefix}-${Utils.object.toKebabCase(key)}`);
                 const v = Utils.object.toValue(value);
 
                 if (Utils.object.isObject(v)) {

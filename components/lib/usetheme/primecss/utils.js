@@ -111,6 +111,28 @@ const Utils = {
 
             return value;
         },
+        toNormalizePrefix(prefix) {
+            return prefix.replaceAll(/ /g, '').replace(/[^\w]/g, '-');
+        },
+        findVariableInValue(value, prefix = '', excludedKeyRegexes = []) {
+            const regex = /{([^}]*)}/g;
+            const val = value?.trim() || '';
+
+            if (this.test(regex, val)) {
+                const matches = [...val.matchAll(regex)];
+                const getVariable = (_val) => {
+                    return this.toKebabCase(
+                        _val
+                            .split('.')
+                            .filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)))
+                            .join('-')
+                    );
+                };
+                return matches.map((_v) => `--${prefix}-${getVariable(_v[1])}`);
+            }
+
+            return [];
+        },
         getVariableValue(value, variable = '', prefix = '', excludedKeyRegexes = []) {
             if (this.isString(value)) {
                 const regex = /{([^}]*)}/g;
@@ -160,6 +182,13 @@ const Utils = {
             }
 
             return '';
+        },
+        getToken(px, prefix, name) {
+            return px
+                .replace(new RegExp(`^${prefix}(-)?(${name})?(.*)`, 'g'), `${name}-$3`)
+                .replaceAll('-', '.')
+                .replaceAll('..', '.')
+                .replaceAll(/\.$/g, '');
         }
     },
     style: {
@@ -208,15 +237,20 @@ const Utils = {
                     styles: [`box-shadow: ${shadows.styles.join(',')};`],
                     variables: shadows.variables,
                     values: shadows.values.join(', ')
+                    //computedValues: {},
+                    //tokens: []
                 };
             }
 
             const computedValue = Utils.object.getVariableValue(value, _prefix, _prefix, excludedKeyRegexes);
 
+            // @todo Update computedValues and tokens options
             return {
                 styles: [`box-shadow: var(--${_prefix});`],
                 variables: [`--${_prefix}: ${computedValue}`],
                 values: computedValue
+                //computedValues: {},
+                //tokens: []
             };
         }
     }

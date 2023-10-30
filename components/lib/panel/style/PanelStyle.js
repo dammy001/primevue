@@ -40,12 +40,22 @@ const classes = {
     footer: 'p-panel-footer'
 };
 
-const themeOptions = {
-    selectorOptions: {
-        selectors: {
-            panel: {
+const options = {
+    theme: {
+        variableOptions: {
+            prefix: 'p-panel'
+        },
+        selectorOptions: {
+            alias: {
                 root: '.p-panel',
-                header: '.p-panel-header'
+                header: '.p-panel-header',
+                title: '.p-panel-title',
+                icons: '.p-panel-icons',
+                toggler: '.p-panel-toggler',
+                toggleablecontent: '.p-toggleable-content',
+                content: '.p-panel-content',
+                footer: '.p-panel-footer',
+                toggleable: '.p-panel-toggleable'
             }
         }
     }
@@ -55,5 +65,5 @@ export default BaseStyle.extend({
     name: 'panel',
     css,
     classes,
-    themeOptions
+    options
 });

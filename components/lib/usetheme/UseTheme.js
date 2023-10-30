@@ -10,7 +10,7 @@ export function useTheme(theme, options = {}) {
         const selectedTheme = _theme || theme || {};
         const name = options.name || 'prime';
         const generatedTheme = selectedTheme[name] || selectedTheme;
-        const { styles, variables } = PrimeCSS.generate({ [name]: generatedTheme }, options);
+        const { styles, variables } = PrimeCSS.generate(generatedTheme, options);
 
         stylesRef.value = useStyle(styles.css, { name: `${name}-styles`, ..._useStyleOptions });
         variablesRef.value = useStyle(variables.css, { name: `${name}-variables`, ..._useStyleOptions });

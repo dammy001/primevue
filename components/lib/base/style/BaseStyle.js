@@ -28,19 +28,19 @@ const classes = {};
 
 const inlineStyles = {};
 
-const themeOptions = undefined;
+const options = {};
 
 export default {
     name: 'base',
     css,
     classes,
     inlineStyles,
-    themeOptions,
+    options,
     loadStyle(options = {}) {
         return this.css ? useStyle(this.css, { name: this.name, ...options }) : {};
     },
-    loadTheme(theme, options = {}) {
-        return theme && this.themeOptions ? useTheme(theme, { name: this.name, ...this.themeOptions }).load(undefined, options) : {};
+    loadTheme(theme, useStyleOptions = {}) {
+        return theme && this.options?.theme ? useTheme(theme, { name: this.name, ...this.options?.theme }).load(undefined, useStyleOptions) : {};
     },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
