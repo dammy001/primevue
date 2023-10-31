@@ -41,6 +41,20 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-column align-items-center gap-6" style="padding: 80px 120px; width: 1310px">
+        <div class="flex flex-column align-items-center" style="gap: 20px; width: 710px">
+            <span class="flex align-items-stretch text-900 text-center text-6xl font-semibold" style="font-family: Inter; line-height: 56px; width: 710px">Integration with Existing Vite Applications</span>
+            <span class="flex text-center text-base font-normal" style="line-height: 21px; width: 710px"
+                >Only the folders that are related to the layout needs to move in to your project. We‘ve already created a short tutorial with details for Sakai Vue. The both templates have the same implementation.</span
+            >
+        </div>
+        <div class="border-round-2xl" style="width: 930px; height: 596.25px; background-color: #e0e0f7">
+            <div class="video relative">
+                <img src="../templates/assets/Dashboard.svg" class="flex align-items-start" style="width: 930px; height: 596.25px" alt="" />
+                <Button icon="pi pi-play text-4xl ml-2" class="absolute top-50 right-50" rounded style="margin-right: -3rem; margin-top: -3rem; height: 5rem; width: 5rem"></Button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
