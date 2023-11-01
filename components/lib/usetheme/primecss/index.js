@@ -53,7 +53,7 @@ const PrimeCSS = {
                     const v = Utils.object.toValue(value);
 
                     if (Utils.object.isObject(v) || exclusiveProperties.some((expr) => expr === k)) {
-                        const computed = k === 'box-shadow' ? Utils.style.getBoxShadow(v, _prefix, [EXCLUDED_KEY_REGEX, excludedKeyRegex]) : _getProperties(v, px, _name, pr);
+                        const computed = k === 'box-shadow' ? Utils.style.getBoxShadow(v, _prefix, prefix, _name, [EXCLUDED_KEY_REGEX, excludedKeyRegex]) : _getProperties(v, px, _name, pr);
 
                         Utils.object.merge(styles, computed.styles);
                         Utils.object.merge(tokens, computed.tokens);

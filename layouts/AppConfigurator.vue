@@ -35,43 +35,43 @@
                 <div class="flex align-items-center justify-content-between gap-3">
                     <button
                         :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            'bg-white border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
                             { 'border-primary': isThemeActive('lara', 'teal'), 'hover:border-500 surface-border': !isThemeActive('lara', 'teal') }
                         ]"
                         style="border-radius: 30px"
-                        @click="changeTheme('lara', 'teal')"
+                        @click="changeTheme(themes.LaraTealLight)"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
                     </button>
                     <button
                         :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            'bg-white border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
                             { 'border-primary': isThemeActive('lara', 'blue'), 'hover:border-500 surface-border': !isThemeActive('lara', 'blue') }
                         ]"
                         style="border-radius: 30px"
-                        @click="changeTheme('lara', 'blue')"
+                        @click="changeTheme(themes.LaraBlueLight)"
                     >
                         <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4378e6 0%, rgba(67, 120, 230, 0.5) 100%)"></span>
                     </button>
                     <button
                         :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('lara', 'indigo'), 'hover:border-500 surface-border': !isThemeActive('lara', 'indigo') }
+                            'bg-black-alpha-90 border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'teal'), 'hover:border-500 surface-border': !isThemeActive('lara', 'teal') }
                         ]"
                         style="border-radius: 30px"
-                        @click="changeTheme('lara', 'indigo')"
+                        @click="changeTheme(themes.LaraTealDark)"
                     >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #585fe0 0%, rgba(88, 95, 224, 0.5) 100%)"></span>
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4dac9c 0%, rgba(77, 172, 156, 0.5) 100%)"></span>
                     </button>
                     <button
                         :class="[
-                            'bg-transparent border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
-                            { 'border-primary': isThemeActive('lara', 'purple'), 'hover:border-500 surface-border': !isThemeActive('lara', 'purple') }
+                            'bg-black-alpha-90 border-1 cursor-pointer p-2 w-3 flex align-items-center justify-content-center transition-all transition-duration-200',
+                            { 'border-primary': isThemeActive('lara', 'blue'), 'hover:border-500 surface-border': !isThemeActive('lara', 'blue') }
                         ]"
                         style="border-radius: 30px"
-                        @click="changeTheme('lara', 'purple')"
+                        @click="changeTheme(themes.LaraBlueDark)"
                     >
-                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #7758e4 0%, rgba(119, 88, 228, 0.5) 100%)"></span>
+                        <span class="block h-1rem w-full" style="border-radius: 30px; background: linear-gradient(180deg, #4378e6 0%, rgba(67, 120, 230, 0.5) 100%)"></span>
                     </button>
                 </div>
             </section>
@@ -236,6 +236,7 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
+import Lara from '@/themes/lara';
 
 export default {
     emits: ['updateConfigActive', 'darkswitch-click'],
@@ -255,7 +256,79 @@ export default {
                 { label: 'Filled', value: 'filled' }
             ],
             compactMaterial: false,
-            lightOnlyThemes: ['fluent-light', 'mira', 'nano']
+            lightOnlyThemes: ['fluent-light', 'mira', 'nano'],
+            themes: {
+                LaraTealLight: {
+                    preset: Lara,
+                    dark: false,
+                    palette: {
+                        primary: '#10b981',
+                        shade: {
+                            '000': '#ffffff',
+                            100: '#f9fafb',
+                            200: '#f3f4f6',
+                            300: '#e5e7eb',
+                            400: '#d1d5db',
+                            500: '#9ca3af',
+                            600: '#6b7280',
+                            700: '#4b5563',
+                            800: '#374151',
+                            900: '#1f2937'
+                        }
+                    }
+                },
+                LaraBlueLight: {
+                    preset: Lara,
+                    dark: false,
+                    palette: {
+                        primary: '#3B82F6',
+                        shade: {
+                            '000': '#ffffff',
+                            100: '#f9fafb',
+                            200: '#f3f4f6',
+                            300: '#e5e7eb',
+                            400: '#d1d5db',
+                            500: '#9ca3af',
+                            600: '#6b7280',
+                            700: '#4b5563',
+                            800: '#374151',
+                            900: '#1f2937'
+                        }
+                    }
+                },
+                LaraTealDark: {
+                    preset: Lara,
+                    dark: true,
+                    palette: {
+                        primary: '#34d399',
+                        shade: {
+                            '000': 'rgba(255,255,255,.87)',
+                            100: 'rgba(255,255,255,.60)',
+                            500: '#6b7280',
+                            600: '#424b57',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827'
+                        }
+                    }
+                },
+                LaraBlueDark: {
+                    preset: Lara,
+                    dark: true,
+                    palette: {
+                        primary: '#60a5fa',
+                        shade: {
+                            '000': 'rgba(255,255,255,.87)',
+                            100: 'rgba(255,255,255,.60)',
+                            500: '#6b7280',
+                            600: '#424b57',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827'
+                        }
+                    }
+                }
+            }
         };
     },
     watch: {
@@ -283,27 +356,9 @@ export default {
             this.visible = false;
             this.$emit('updateConfigActive', false);
         },
-        changeTheme(theme, color) {
-            let newTheme, dark;
-
-            if (this.lightOnlyThemes.includes(theme)) {
-                newTheme = theme;
-                dark = false;
-            } else {
-                newTheme = theme + '-' + (this.$appState.darkTheme ? 'dark' : 'light');
-
-                if (color) {
-                    newTheme += '-' + color;
-                }
-
-                if (newTheme.startsWith('md-') && this.compactMaterial) {
-                    newTheme = newTheme.replace('md-', 'mdc-');
-                }
-
-                dark = this.$appState.darkTheme;
-            }
-
-            EventBus.emit('theme-change', { theme: newTheme, dark: dark });
+        changeTheme(theme) {
+            this.$primevue.config.theme = theme;
+            this.$appState.darkTheme = !!theme.dark;
         },
         decrementScale() {
             this.scale--;

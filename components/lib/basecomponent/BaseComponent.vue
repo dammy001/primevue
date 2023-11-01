@@ -43,8 +43,8 @@ export default {
             immediate: true,
             handler(newValue) {
                 if (newValue) {
-                    BaseComponentStyle.loadTheme(this.$theme, { nonce: this.$config?.csp?.nonce });
-                    this.$options.style && this.$style.loadTheme(this.$theme, { nonce: this.$config?.csp?.nonce });
+                    BaseComponentStyle.loadTheme(this.$preset, { nonce: this.$config?.csp?.nonce });
+                    this.$options.style && this.$style.loadTheme(this.$preset, { nonce: this.$config?.csp?.nonce });
                 }
             }
         }
@@ -216,6 +216,11 @@ export default {
         },
         $theme() {
             return this.theme !== undefined ? this.theme : this.$config?.theme;
+        },
+        $preset() {
+            const { preset, ...options } = this.$theme || {};
+
+            return ObjectUtils.getItemValue(preset, options);
         },
         $params() {
             return { instance: this, props: this.$props, state: this.$data, parentInstance: this.$parentInstance };

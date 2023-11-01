@@ -196,9 +196,9 @@ const Utils = {
         }
     },
     style: {
-        getBoxShadow(value = {}, prefix = '', excludedKeyRegexes) {
+        getBoxShadow(value = {}, localPrefix = '', prefix = '', name = '', excludedKeyRegexes) {
             const _value = Utils.object.toValue(value);
-            const _prefix = `--${prefix}-box-shadow`;
+            const _prefix = `${localPrefix}-box-shadow`;
 
             if (!Utils.object.isString(_value)) {
                 const shadows = [_value].flat().reduce(
@@ -216,45 +216,53 @@ const Utils = {
 
                         let styles = [];
                         let values = [];
+                        let computedValues = [];
+                        let tokens = [];
 
                         Object.entries(variables).forEach(([_k, _v]) => {
                             const computedValue = Utils.object.getVariableValue(_v, _prefix, prefix, excludedKeyRegexes);
 
-                            styles.push(`var(${_k})`);
-                            values.push(computedValue);
-                            Utils.object.setProperty(acc['variables'], _k, computedValue);
+                            styles.push(`var(--${_k})`);
+                            values.push(_v);
+                            computedValues.push(computedValue);
+                            tokens.push(Utils.object.getToken(_k, prefix, name));
+                            Utils.object.setProperty(acc['variables'], `--${_k}`, computedValue);
                         });
 
                         acc['styles'].push(styles.join(' '));
                         acc['values'].push(values.join(' '));
+                        acc['computedValues'].push(computedValues.join(' '));
+                        acc['tokens'].push(tokens.join(' '));
 
                         return acc;
                     },
                     {
                         styles: [],
                         variables: [],
-                        values: []
+                        values: [],
+                        computedValues: [],
+                        tokens: []
                     }
                 );
 
                 return {
                     styles: [`box-shadow: ${shadows.styles.join(',')};`],
                     variables: shadows.variables,
-                    values: shadows.values.join(', ')
-                    //computedValues: {},
-                    //tokens: []
+                    values: shadows.values.join(', '),
+                    computedValues: shadows.computedValues.join(', '),
+                    tokens: shadows.tokens.join(', ')
                 };
             }
 
-            const computedValue = Utils.object.getVariableValue(value, _prefix, _prefix, excludedKeyRegexes);
+            const computedValue = Utils.object.getVariableValue(_value, _prefix, prefix, excludedKeyRegexes);
 
             // @todo Update computedValues and tokens options
             return {
                 styles: [`box-shadow: var(--${_prefix});`],
                 variables: [`--${_prefix}: ${computedValue}`],
-                values: computedValue
-                //computedValues: {},
-                //tokens: []
+                values: _value,
+                computedValues: computedValue,
+                tokens: [Utils.object.getToken(_prefix, prefix, name)]
             };
         }
     }

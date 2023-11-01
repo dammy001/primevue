@@ -139,7 +139,9 @@ export const defaultOptions = {
         mergeProps: false
     },
     unstyled: false,
-    theme: undefined,
+    theme: {
+        preset: undefined
+    },
     csp: {
         nonce: undefined
     }
