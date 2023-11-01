@@ -21,6 +21,8 @@ const SELECTOR = {
         after: ':after',
         hover: ':hover',
         focus: ':focus',
+        focusVisible: ':focus-visible',
+        enabled: ':enabled',
         lastChild: ':last-child'
     }
 };
@@ -31,8 +33,11 @@ const EXCLUDED_KEY_REGEX_FOR_FIGMA = /^(typography)$/gi;
 const PrimeCSS = {
     generate(theme, options = {}) {
         const { variableOptions = {}, selectorOptions = {} } = options;
-        const { prefix = VARIABLE.PREFIX, enable = true, transform = VARIABLE.TRANSFORM, selector: variableSelector = VARIABLE.SELECTOR, excludedKeyRegex = VARIABLE.EXCLUDED_KEY_REGEX } = variableOptions;
-        const { prefix: selectorPrefix = SELECTOR.PREFIX, layer = SELECTOR.LAYER, selectors = SELECTOR.SELECTORS, alias = SELECTOR.ALIAS, defaultTemplate = SELECTOR.DEFAULT_TEMPLATE } = selectorOptions;
+        let { prefix = VARIABLE.PREFIX, enable = true, transform = VARIABLE.TRANSFORM, selector: variableSelector = VARIABLE.SELECTOR, excludedKeyRegex = VARIABLE.EXCLUDED_KEY_REGEX } = variableOptions;
+        let { prefix: selectorPrefix = SELECTOR.PREFIX, layer = SELECTOR.LAYER, selectors = {}, alias = {}, defaultTemplate = SELECTOR.DEFAULT_TEMPLATE } = selectorOptions;
+
+        selectors = { ...SELECTOR.SELECTORS, ...selectors };
+        alias = { ...SELECTOR.ALIAS, ...alias };
 
         const exclusiveProperties = ['box-shadow'];
         const isLenientTransform = transform === 'lenient';
@@ -86,7 +91,7 @@ const PrimeCSS = {
                 return k ? alias[k] : Utils.object.getSelectorOptionValue(selectors, p);
             };
 
-            return _value['selector'] || _getSelectorFromPath() || defaultTemplate.replace('{0}', _key);
+            return _value['selector'] ?? _getSelectorFromPath() ?? defaultTemplate.replace('{0}', _key);
         };
 
         const _generate = (_theme = {}, _prefix = '', _selector = '', _keys = [], _compound = false) => {

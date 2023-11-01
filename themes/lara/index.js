@@ -3,7 +3,7 @@ import tint from '@/components/lib/usetheme/primecss/utils/color/tint';
 
 const palette = (color) => {
     return Array.from({ length: 10 }).reduce((acc, _, i) => {
-        i <= 5 ? (acc[i === 0 ? '50' : `${i * 100}`] = tint(color, (5 - i) * 19)) : (acc[`${i * 100}`] = shade(color, i * 15));
+        i <= 5 ? (acc[i === 0 ? '50' : `${i * 100}`] = tint(color, (5 - i) * 19)) : (acc[`${i * 100}`] = shade(color, (i - 5) * 15));
 
         return acc;
     }, {});
@@ -73,15 +73,28 @@ export default {
             bluegray: palette('#64748B'),
             purple: palette('#A855F7'),
             red: palette('#FF3D32'),
-            primary: palette('#3B82F6')
+            primary: palette('#10b981'),
+            /* @todo */
+            palette: {
+                '000': '#ffffff',
+                100: '#f9fafb',
+                200: '#f3f4f6',
+                300: '#e5e7eb',
+                400: '#d1d5db',
+                500: '#9ca3af',
+                600: '#6b7280',
+                700: '#4b5563',
+                800: '#374151',
+                900: '#1f2937'
+            }
         }
     },
     panel: {
         root: {
             header: {
                 properties: {
-                    color: '#343a40',
-                    background: '#f8f9fa',
+                    color: '{global.shade.800}',
+                    background: '{global.shade.100}',
                     padding: {
                         top: '1.25rem',
                         right: '1.25rem',
@@ -91,60 +104,71 @@ export default {
                     border: {
                         width: '1px',
                         style: 'solid',
-                        color: '#dee2e6'
-                    }
-                }
-            },
-            title: {
-                properties: {
-                    font: {
-                        size: 'inherit',
-                        weight: 700
-                    }
-                }
-            },
-            toggler: {
-                properties: {
-                    width: '2rem',
-                    height: '2rem',
-                    color: '#6c757d',
-                    background: 'transparent',
-                    border: {
-                        width: 0,
-                        style: 'none',
-                        color: 'initial',
-                        radius: '50%'
+                        color: '{global.shade.300}'
+                    },
+                    borderTop: {
+                        rightRadius: '{global.borderRadius}',
+                        leftRadius: '{global.borderRadius}'
                     }
                 },
-                states: {
-                    hover: {
+                children: {
+                    title: {
                         properties: {
-                            color: '#343a40',
-                            background: '#e9ecef',
-                            border: {
-                                width: 'inherit',
-                                style: 'inherit',
-                                color: '#dee2e6'
+                            font: {
+                                size: 'medium',
+                                weight: 700
                             }
                         }
                     },
-                    focus: {
+                    toggler: {
                         properties: {
-                            outline: {
-                                color: 'var(--p-primary-light-color)',
-                                style: 'none',
+                            width: '2rem',
+                            height: '2rem',
+                            color: '{global.shade.600}',
+                            background: 'transparent',
+                            border: {
                                 width: 0,
-                                offset: 0
+                                style: 'none',
+                                color: 'initial',
+                                radius: '50%'
                             },
-                            boxShadow: '0 0 0 0.2rem var(--p-primary-light-color)'
+                            transition: '{global.transition}'
+                        },
+                        compounds: {
+                            enabled: {
+                                states: {
+                                    hover: {
+                                        properties: {
+                                            color: '{global.shade.800}',
+                                            background: '{global.shade.200}',
+                                            border: {
+                                                width: 'inherit',
+                                                style: 'inherit',
+                                                color: 'transparent'
+                                            }
+                                        }
+                                    },
+                                    focusVisible: {
+                                        properties: {
+                                            outline: {
+                                                color: 'var(--p-primary-light-color)',
+                                                style: 'none',
+                                                width: 0,
+                                                offset: 0
+                                            },
+                                            boxShadow: '0 0 0 0.2rem var(--p-primary-light-color)'
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             },
             content: {
                 properties: {
-                    color: '#495057',
-                    background: '#ffffff',
+                    color: '#4b5563',
+                    background: '{global.shade.000}',
                     padding: {
                         top: '1.25rem',
                         right: '1.25rem',
@@ -154,14 +178,29 @@ export default {
                     border: {
                         width: '1px',
                         style: 'solid',
-                        color: '#dee2e6'
+                        color: '{global.shade.300}'
+                    },
+                    borderTop: {
+                        width: '0',
+                        style: 'none',
+                        color: 'transparent'
+                    }
+                },
+                compounds: {
+                    lastChild: {
+                        properties: {
+                            borderBottom: {
+                                rightRadius: '{global.borderRadius}',
+                                leftRadius: '{global.borderRadius}'
+                            }
+                        }
                     }
                 }
             },
             footer: {
                 properties: {
-                    color: '#495057',
-                    background: '#ffffff',
+                    color: '{global.shade.700}',
+                    background: '{global.shade.000}',
                     padding: {
                         top: '0.75rem',
                         right: '1.25rem',
@@ -171,7 +210,16 @@ export default {
                     border: {
                         width: '1px',
                         style: 'solid',
-                        color: '#dee2e6'
+                        color: '{global.shade.300}'
+                    },
+                    borderTop: {
+                        width: '0',
+                        style: 'none',
+                        color: 'transparent'
+                    },
+                    borderBottom: {
+                        rightRadius: '{global.borderRadius}',
+                        leftRadius: '{global.borderRadius}'
                     }
                 }
             },

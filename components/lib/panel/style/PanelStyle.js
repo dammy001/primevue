@@ -42,11 +42,9 @@ const classes = {
 
 const options = {
     theme: {
-        variableOptions: {
-            prefix: 'p-panel'
-        },
         selectorOptions: {
             alias: {
+                panel: '',
                 root: '.p-panel',
                 header: '.p-panel-header',
                 title: '.p-panel-title',

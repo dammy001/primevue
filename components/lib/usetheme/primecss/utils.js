@@ -115,20 +115,24 @@ const Utils = {
             return prefix.replaceAll(/ /g, '').replace(/[^\w]/g, '-');
         },
         findVariableInValue(value, prefix = '', excludedKeyRegexes = []) {
-            const regex = /{([^}]*)}/g;
-            const val = value?.trim() || '';
+            if (this.isString(value)) {
+                const regex = /{([^}]*)}/g;
+                const val = value?.trim() || '';
 
-            if (this.test(regex, val)) {
-                const matches = [...val.matchAll(regex)];
-                const getVariable = (_val) => {
-                    return this.toKebabCase(
-                        _val
-                            .split('.')
-                            .filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)))
-                            .join('-')
-                    );
-                };
-                return matches.map((_v) => `--${prefix}-${getVariable(_v[1])}`);
+                if (this.test(regex, val)) {
+                    const matches = [...val.matchAll(regex)];
+
+                    const getVariable = (_val) => {
+                        return this.toKebabCase(
+                            _val
+                                .split('.')
+                                .filter((_v) => !excludedKeyRegexes.some((_r) => this.test(_r, _v)))
+                                .join('-')
+                        );
+                    };
+
+                    return matches.map((_v) => `--${prefix}-${getVariable(_v[1])}`);
+                }
             }
 
             return [];
