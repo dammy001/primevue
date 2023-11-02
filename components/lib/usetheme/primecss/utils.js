@@ -259,7 +259,7 @@ const Utils = {
             // @todo Update computedValues and tokens options
             return {
                 styles: [`box-shadow: var(--${_prefix});`],
-                variables: [`--${_prefix}: ${computedValue}`],
+                variables: [`--${_prefix}: ${computedValue};`],
                 values: _value,
                 computedValues: computedValue,
                 tokens: [Utils.object.getToken(_prefix, prefix, name)]
