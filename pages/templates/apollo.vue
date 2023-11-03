@@ -47,11 +47,50 @@
             >
         </div>
         <div class="border-round-2xl" style="max-width: 930px; max-height: 596.25px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
-            <div class="relative w-22rem md:w-full">
+            <div class="relative w-22rem md:w-full h-12rem md:h-full">
                 <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px)" alt="" />
                 <div class="flex" style="max-width: 100px">
                     <img src="../templates/assets/PLay.svg" class="absolute top-50 right-50 cursor-pointer" style="margin-right: -5rem; margin-top: -5rem; height: 10rem" alt="" />
                 </div>
+            </div>
+              
+        </div>
+    </div>
+    <div class="flex flex-column align-items-center justify-content-center gap-6 p-8">
+        <span class="flex flex-column font-semibold text-center text-2xl md:text-6xl text-900 w-full" style="line-height: 56px; max-width: 714px"><span>Features that the</span> Apollo template gives you </span>
+        <div class="flex w-full h-full p-5 justify-content-center align-items-center gap-5 border-round-2xl bg-white" style="max-width: 1062px; max-height: 534px">
+            <ul class="flex flex-column align-items-center gap-2 flex-1 h-full">
+                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px; background-color: #f5f5f5">
+                    <img src="../templates/assets/numbers/HoverOne.png" alt="" />
+                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
+                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
+                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
+                    </div>
+                </li>
+                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
+                    <img src="../templates/assets/numbers/two.png" alt="" />
+                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
+                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
+                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
+                    </div>
+                </li>
+                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
+                    <img src="../templates/assets/numbers/three.png" alt="" />
+                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
+                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
+                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
+                    </div>
+                </li>
+                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
+                    <img src="../templates/assets/numbers/four.png" alt="" />
+                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
+                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
+                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
+                    </div>
+                </li>
+            </ul>
+            <div>
+                <img src="../templates/assets/Screen_Card.png" alt="" />
             </div>
         </div>
     </div>
