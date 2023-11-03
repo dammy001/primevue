@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-column justify-content-center">
-        <div class="relative flex justify-content-start w-full h-28rem" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat">
+        <div class="relative flex lg:justify-content-between justify-content-center align-items-center md:pl-8 h-28rem" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat">
             <div
-                class="sm:flex sm:justify-content-center sm:align-items-center flex-column justify-content-between align-items-start gap-4 border-round-3xl md:"
+                class="flex w-20rem md:w-full w sm:justify-content-center sm:align-items-center flex-column justify-content-between align-items-start gap-4 border-round-3xl"
                 style="
                     border: 1px solid rgba(255, 255, 255, 0.24);
                     background: linear-gradient(180deg, rgba(170, 140, 255, 0) 0%, rgba(170, 140, 255, 0.8) 100%), rgba(255, 255, 255, 0.1);
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden lg:flex absolute" style="right: 2rem; bottom: 0rem">
-                <img src="../templates/assets/Group_4.png" class="w-full h-full" style="max-width: 500px; max-height: 340px" alt="1" />
+            <div class="hidden lg:block" style="">
+                <img src="../templates/assets/Group_4.png" alt="1" class="w-full h-full pt-4 pr-6" style="max-height: 390px; max-width: 643px; min-width: 462px; min-height: 325px" />
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
             >
         </div>
         <div class="border-round-2xl" style="max-width: 930px; max-height: 596.25px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
-            <div class="relative">
+            <div class="relative w-22rem md:w-full">
                 <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px)" alt="" />
                 <div class="flex" style="max-width: 100px">
                     <img src="../templates/assets/PLay.svg" class="absolute top-50 right-50 cursor-pointer" style="margin-right: -5rem; margin-top: -5rem; height: 10rem" alt="" />
