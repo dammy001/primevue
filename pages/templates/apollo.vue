@@ -56,8 +56,8 @@
               
         </div>
     </div>
-    <div class="flex flex-column align-items-center justify-content-center gap-6 p-8">
-        <span class="flex flex-column font-semibold text-center text-2xl md:text-6xl text-900 w-full" style="line-height: 56px; max-width: 714px"><span>Features that the</span> Apollo template gives you </span>
+    <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
+        <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900" style="max-width: 718px">Features that the Apolla template gives you</p>
         <FeatureMenu :items="items" />
     </div>
 </template>
@@ -76,14 +76,14 @@ export default {
                 },
                 {
                     id: 'two',
-                    title: 'Light / Dark / Dim Modes',
-                    description: 'Apollo has 3 display modes to choose from; Light, Dim and Dark.',
-                    image: 'Screen_Card.png'
+                    title: 'Component Themes',
+                    description: 'Apollo offers 24 built-in component themes and creating your own theme is a matter of defining couple of sass variables.',
+                    image: 'Colors.png'
                 },
                 {
                     id: 'three',
-                    title: 'Light / Dark / Dim Modes',
-                    description: 'Apollo has 3 display modes to choose from; Light, Dim and Dark.',
+                    title: '7 Menu Orientations',
+                    description: 'Static, Overlay, Slim, Slim+, Reveal, Drawer and Horizontal are the available menu layouts depending on your preference.',
                     isGalleria: true,
                     image: [
                         '/_nuxt/pages/templates/assets/layout-menu/static.svg',
@@ -97,9 +97,9 @@ export default {
                 },
                 {
                     id: 'four',
-                    title: 'Light / Dark / Dim Modes',
-                    description: 'Apollo has 3 display modes to choose from; Light, Dim and Dark.',
-                    image: 'Screen_Card.png'
+                    title: 'Menu Themes',
+                    description: 'Stunning theming for the main menu with 3 alternatives; Color Scheme, Primary Color and Transparent.',
+                    image: 'Themes.png'
                 }
             ]
         };
