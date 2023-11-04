@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-column justify-content-center">
-        <div class="relative flex lg:justify-content-between justify-content-center align-items-center md:pl-8 h-28rem" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat">
+        <div class="flex flex-wrap justify-content-center align-items-center xl:justify-content-between" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat; background-size: cover">
             <div
-                class="flex w-20rem md:w-full w sm:justify-content-center sm:align-items-center flex-column justify-content-between align-items-start gap-4 border-round-3xl"
+                class="flex w-full gap-4 border-round-3xl my-8 xl:ml-8 xl:my-0"
                 style="
                     border: 1px solid rgba(255, 255, 255, 0.24);
                     background: linear-gradient(180deg, rgba(170, 140, 255, 0) 0%, rgba(170, 140, 255, 0.8) 100%), rgba(255, 255, 255, 0.1);
@@ -13,11 +13,11 @@
                     max-height: 300px;
                 "
             >
-                <div class="flex flex-column justify-content-center align-items-start gap-5 px-4 py-5">
+                <div class="flex flex-column justify-content-center align-items-start gap-5 lg:px-4 lg:py-5 md:px-3 md:py-4" style="min-width: 351px">
                     <img src="../templates/assets/Logo.svg" alt="1" />
                     <span class="text-white">Vue template with mode options, menu layouts, sample apps, pre-made pages, and 24 PrimeVue themes.</span>
-                    <div class="flex flex-column justify-content-center align-items-start gap-3 align-self-stretch">
-                        <div class="flex align-items-center gap-3 align-self-stretch">
+                    <div class="flex flex-column justify-content-center align-items-start align-self-stretch">
+                        <div class="flex flex-wrap align-items-center gap-3 align-self-stretch">
                             <Button label="Live Demo" class="flex justify-content-center align-items-center flex-1 surface-900 border-900" style="padding: 10.5px 17.5px; gap: 7px; border-radius: 48px"></Button>
                             <Button label="Buy Now" severity="info" class="flex justify-content-center align-items-center flex-1" style="padding: 10.5px 17.5px; gap: 7px; border-radius: 48px"></Button>
                         </div>
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden lg:block" style="">
-                <img src="../templates/assets/Group_4.png" alt="1" class="w-full h-full pt-4 pr-6" style="max-height: 390px; max-width: 643px; min-width: 462px; min-height: 325px" />
+            <div class="ml-6 xl:ml-0 overflow-hidden">
+                <img src="../templates/assets/Group_4.png" alt="1" class="w-full h-full" style="max-height: 390px; width: 643px; min-height: 325px" />
             </div>
         </div>
     </div>
@@ -61,41 +61,7 @@
         <FeatureMenu :items="items" />
     </div>
 </template>
-<!-- <div class="flex w-full h-full p-5 justify-content-center align-items-center gap-5 border-round-2xl bg-white" style="max-width: 1062px; max-height: 534px">
-            <ul class="flex flex-column align-items-center gap-2 flex-1 h-full">
-                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px; background-color: #f5f5f5">
-                    <img src="../templates/assets/numbers/HoverOne.png" alt="" />
-                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
-                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
-                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
-                    </div>
-                </li>
-                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
-                    <img src="../templates/assets/numbers/two.png" alt="" />
-                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
-                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
-                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
-                    </div>
-                </li>
-                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
-                    <img src="../templates/assets/numbers/three.png" alt="" />
-                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
-                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
-                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
-                    </div>
-                </li>
-                <li class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl" style="max-width: 476px">
-                    <img src="../templates/assets/numbers/four.png" alt="" />
-                    <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
-                        <div class="text-xl text-900 align-items-stretch font-semibold line-height-3">Light / Dark / Dim Modes</div>
-                        <div class="text-base font-normal line-height-3">Apollo has 3 display modes to choose from; Light, Dim and Dark.</div>
-                    </div>
-                </li>
-            </ul>
-            <div>
-                <img src="../templates/assets/Screen_Card.png" alt="" />
-            </div>
-        </div> -->
+
 <script>
 import FeatureMenu from '../templates/FeatureMenu.vue';
 export default {
@@ -118,7 +84,16 @@ export default {
                     id: 'three',
                     title: 'Light / Dark / Dim Modes',
                     description: 'Apollo has 3 display modes to choose from; Light, Dim and Dark.',
-                    image: 'Screen_Card.png'
+                    isGalleria: true,
+                    image: [
+                        '/_nuxt/pages/templates/assets/layout-menu/static.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/slim.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/reveal.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/horizontal.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/overlay.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/slim+.svg',
+                        '/_nuxt/pages/templates/assets/layout-menu/drawer.svg'
+                    ]
                 },
                 {
                     id: 'four',
