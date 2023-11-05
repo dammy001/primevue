@@ -59,6 +59,37 @@
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
         <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900" style="max-width: 718px">Features that the Apolla template gives you</p>
         <FeatureMenu :items="items" />
+        <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
+    </div>
+    <div class="flex w-full flex-column justify-content-center align-items-center gap-2" style="max-width: 1440px">
+        <div class="flex flex-wrap md:flex-nowrap w-full align-items-center justify-content-center md:align-items-start gap-4" style="max-width: 1062px">
+            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
+                <img src="../templates/assets/Features/Use_applications.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Applications</span>
+                    <span class="align-self-stretch text-sm font-normal line-height-3">Mail, File System, Tasks, Calendar, Blog and Chat are the sample applications to get started with ease.</span>
+                </div>
+            </div>
+            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
+                <img src="../templates/assets/Features/E-Commerce.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">E-Commerce Pages</span>
+                    <span class="align-self-stretch text-sm font-normal line-height-3">Apollo offers E-commerce pages to kickstart your e-commerce project powered by PrimeBlocks.</span>
+                </div>
+            </div>
+            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
+                <img src="../templates/assets/Features/Pages.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Pages</span>
+                    <span class="align-self-stretch text-sm font-normal line-height-3">Landing, login, invoice, help, user management and error pages are provided as template pages to get started with building your app.</span>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -113,5 +144,22 @@ export default {
 <style>
 a {
     text-decoration: underline;
+}
+.icon {
+    font-size: 24px;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Create the horizontal lines */
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #000;
+    margin: 0 10px; /* Adjust the spacing between the lines and the icon */
+    border-radius: 50%; /* Round the ends of the lines */
 }
 </style>
