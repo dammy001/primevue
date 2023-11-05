@@ -90,6 +90,21 @@
                 </div>
             </div>
         </div>
+        <div class="flex w-full py-6 align-items-center gap-4" style="max-width: 1062px">
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
+    </div>
+    <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
+        <FeatureMenu :items="items2" />
+        <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
     </div>
 </template>
 
@@ -131,6 +146,33 @@ export default {
                     title: 'Menu Themes',
                     description: 'Stunning theming for the main menu with 3 alternatives; Color Scheme, Primary Color and Transparent.',
                     image: 'Themes.svg'
+                }
+            ],
+            items2: [
+                {
+                    id: 'one',
+                    title: 'PrimeFlex CSS Utilities',
+                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
+                    image: 'Utilities.svg'
+                },
+                {
+                    id: 'two',
+                    title: 'PrimeBlocks',
+                    description: 'Fully compatible with PrimeBlocks, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the template and requires a separate purchase.',
+                    image: 'Primeblocks.svg'
+                },
+                {
+                    id: 'three',
+                    title: 'PrimeIcons',
+                    description: 'Apollo ships with PrimeIcons, PrimeTek’s modern icon library including a wide range of icons for your applications.',
+                    image: 'Prime-icons.svg'
+                },
+                {
+                    id: 'four',
+                    title: 'Figma File',
+                    description:
+                        'Apollo uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can preview the Figma file before the purchase. Note that PrimeVue UI components are excluded from the Apollo Figma file as they are available in PrimeOne for Figma only.',
+                    image: 'Figma.svg'
                 }
             ]
         };
