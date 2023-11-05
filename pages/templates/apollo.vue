@@ -99,6 +99,29 @@
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
         </div>
     </div>
+    <div class="flex w-full justify-content-center p-7 relative" style="display: inline-block">
+        <img src="./assets/vuecli.svg" alt="" class="w-full h-full" style="max-width: 788px; max-height: 403px" />
+        <div class="flex flex-column justify-content-center align-items-center w-full absolute" style="height: 60%">
+            <div class="w-full justify-content-center flex flex-column align-items-center">
+                <img src="./assets/Screen.svg" class="w-full h-full mt-8" style="max-height: 221px; max-width: 624px" />
+            </div>
+            <div class="flex flex-column justify-content-center align-item-start h-full w-full" style="max-height: 221px; max-width: 624px">
+                <div class="flex flex-column justify-content-between gap-3">
+                    <h3 class="mt-2">Vue.js App with No Configuration</h3>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex w-full py-6 align-items-center gap-4" style="max-width: 1062px">
+        <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+        <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+        <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+    </div>
+
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
         <FeatureMenu :items="items2" :dynamicStyle="{ height: '10.4rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
@@ -106,6 +129,58 @@
 
             <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
+    </div>
+    <div class="flex justify-content-center px-4">
+        <div class="grid p-8">
+            <div class="col-12 md:col-6">
+                <div class="card">
+                    <div>
+                        <img src="./assets/responsive.svg" alt="" />
+                        <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                        <div class="text-xs md:text-base font-normal line-height-3">
+                            Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/responsive.svg" alt="" />
+                    <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/responsive.svg" alt="" />
+                    <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 md:col-6 md:pt-8">
+                <div class="card">
+                    <img src="./assets/responsive.svg" alt="" />
+                    <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/responsive.svg" alt="" />
+                    <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/responsive.svg" alt="" />
+                    <h5 class="mt-2">Vue.js App with No Configuration</h5>
+                    <div class="text-xs md:text-base font-normal line-height-3">
+                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
