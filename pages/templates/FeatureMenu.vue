@@ -4,15 +4,15 @@
             <li
                 v-for="item in items"
                 :key="item.id"
-                class="flex w-full h-8rem p-3 align-items-start gap-4 border-round-xl cursor-pointer"
-                :style="[activeItem.id === item.id ? { 'background-color': '#f5f5f5' } : {}]"
+                class="flex w-full p-2 align-items-start gap-4 border-round-xl cursor-pointer"
+                :style="[activeItem.id === item.id ? { 'background-color': '#f5f5f5' } : {}, dynamicStyle]"
                 style="min-width: 309px"
                 @click="onClick(item)"
             >
                 <img :src="`/_nuxt/pages/templates/assets/numbers/${activeItem.id === item.id ? item.id + '-fill' : item.id}.svg`" :alt="item.id" />
-                <div class="flex flex-column align-items-start gap-1 flex-1 h-full" style="max-height: 70px">
+                <div class="flex flex-column align-items-start gap-1 flex-1">
                     <div class="text-lg text-900 align-items-stretch font-semibold line-height-3">{{ item.title }}</div>
-                    <div class="text-xs md:text-base font-normal line-height-3">{{ item.description }}</div>
+                    <div class="text-xs md:text-sm font-normal line-height-3">{{ item.description }}</div>
                 </div>
             </li>
         </ul>
@@ -50,6 +50,10 @@ export default {
                   border-radius: 12px;
                   background:  #EFF3F8;
                   `
+        },
+        dynamicStyle: {
+            type: String,
+            default: null
         }
     },
     data() {

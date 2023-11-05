@@ -60,7 +60,7 @@
     </div>
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
         <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900" style="max-width: 718px">Features that the Apolla template gives you</p>
-        <FeatureMenu :items="items" />
+        <FeatureMenu :items="items" :dynamicStyle="{ height: '8rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
-        <FeatureMenu :items="items2" />
+        <FeatureMenu :items="items2" :dynamicStyle="{ height: '10.4rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
