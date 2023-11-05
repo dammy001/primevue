@@ -72,13 +72,13 @@ export default {
                     id: 'one',
                     title: 'Light / Dark / Dim Modes',
                     description: 'Apollo has 3 display modes to choose from; Light, Dim and Dark.',
-                    image: 'Screen_Card.png'
+                    image: 'Screen_Card.svg'
                 },
                 {
                     id: 'two',
                     title: 'Component Themes',
                     description: 'Apollo offers 24 built-in component themes and creating your own theme is a matter of defining couple of sass variables.',
-                    image: 'Colors.png'
+                    image: 'Colors.svg'
                 },
                 {
                     id: 'three',
@@ -99,7 +99,7 @@ export default {
                     id: 'four',
                     title: 'Menu Themes',
                     description: 'Stunning theming for the main menu with 3 alternatives; Color Scheme, Primary Color and Transparent.',
-                    image: 'Themes.png'
+                    image: 'Themes.svg'
                 }
             ]
         };
