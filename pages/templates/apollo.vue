@@ -68,58 +68,75 @@
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
         </div>
     </div>
-    <div class="flex w-full flex-column justify-content-center align-items-center gap-2" style="max-width: 1440px">
-        <div class="flex flex-wrap md:flex-nowrap w-full align-items-center justify-content-center md:align-items-start gap-4" style="max-width: 1062px">
-            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
-                <img src="../templates/assets/Features/Use_applications.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
-                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
-                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Applications</span>
-                    <span class="align-self-stretch text-sm font-normal line-height-3">Mail, File System, Tasks, Calendar, Blog and Chat are the sample applications to get started with ease.</span>
-                </div>
-            </div>
-            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
-                <img src="../templates/assets/Features/E-Commerce.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
-                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
-                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">E-Commerce Pages</span>
-                    <span class="align-self-stretch text-sm font-normal line-height-3">Apollo offers E-commerce pages to kickstart your e-commerce project powered by PrimeBlocks.</span>
-                </div>
-            </div>
-            <div class="flex flex-column align-items-start gap-4 flex-1 align-self-stretch border-round-lg bg-white" style="padding: 20px 20px 41px 20px; max-width: 338px; min-width: 200px">
-                <img src="../templates/assets/Features/Pages.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
-                <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
-                    <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Pages</span>
-                    <span class="align-self-stretch text-sm font-normal line-height-3">Landing, login, invoice, help, user management and error pages are provided as template pages to get started with building your app.</span>
-                </div>
-            </div>
-        </div>
-        <div class="flex w-full py-6 align-items-center gap-4" style="max-width: 1062px">
-            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
-            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
-            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
-        </div>
-    </div>
-    <div class="flex w-full justify-content-center p-7 relative" style="display: inline-block">
-        <img src="./assets/vuecli.svg" alt="" class="w-full h-full" style="max-width: 788px; max-height: 403px" />
-        <div class="flex flex-column justify-content-center align-items-center w-full absolute" style="height: 60%">
-            <div class="w-full justify-content-center flex flex-column align-items-center">
-                <img src="./assets/Screen.svg" class="w-full h-full mt-8" style="max-height: 221px; max-width: 624px" />
+    <div class="flex w-full justify-content-center">
+        <div class="grid" style="max-width: 1062px">
+            <div class="col-12 lg:col-4">
+                <div class="flex h-full justify-content-center">
+                    <div class="shadow-2 p-5 h-full flex flex-column surface-card" style="border-radius: 6px">
+                        <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
+                            <img src="../templates/assets/Features/Use_applications.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                            <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                                <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Applications</span>
+                                <span class="align-self-stretch text-sm font-normal line-height-3">Mail, File System, Tasks, Calendar, Blog and Chat are the sample applications to get started with ease.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-column justify-content-center align-item-start h-full w-full" style="max-height: 221px; max-width: 624px">
-                <div class="flex flex-column justify-content-between gap-3">
-                    <h3 class="mt-2">Vue.js App with No Configuration</h3>
-                    <div class="text-xs md:text-base font-normal line-height-3">
-                        Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+            <div class="col-12 lg:col-4">
+                <div class="flex h-full justify-content-center">
+                    <div class="shadow-2 p-5 h-full flex flex-column surface-card" style="border-radius: 6px">
+                        <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
+                            <img src="../templates/assets/Features/E-commerce.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                            <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                                <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">E-Commerce Pages</span>
+                                <span class="align-self-stretch text-sm font-normal line-height-3">Apollo offers E-commerce pages to kickstart your e-commerce project powered by PrimeBlocks.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 lg:col-4">
+                <div class="flex h-full justify-content-center">
+                    <div class="shadow-2 p-5 flex flex-column surface-card" style="border-radius: 6px">
+                        <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
+                            <img src="../templates/assets/Features/Pages.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
+                            <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
+                                <span class="align-self-stretch text-900 text-lg font-semibold line-height-3">Ready to Use Pages</span>
+                                <span class="align-self-stretch text-sm font-normal line-height-3">Landing, login, invoice, help, user management and error pages are provided as template pages to get started with building your app.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flex w-full py-6 align-items-center gap-4" style="max-width: 1062px">
-        <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
-        <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
-        <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+    <div class="flex flex-column justify-content-center align-items-center gap-2 w-full p-8" style="max-width: 1440px">
+        <div class="flex w-full align-items-center gap-4 pb-6" style="max-width: 1062px">
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
+        <div class="flex flex-column p-5 w-full align-items-start gap-4 border-round-2xl bg-white" style="max-width: 788px; box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.08)">
+            <div class="flex flex-column align-items-center align-self-stretch border-round-lg h-full" style="max-height: 221px">
+                <img src="../templates/assets/Vuecli.svg" alt="" class="h-full flex-grow-0 align-self-stretch" style="max-height: 165px" />
+            </div>
+            <div class="flex flex-column align-items-start gap-4 align-self-stretch">
+                <span class="align-self-stretch text-2xl font-bold line-height-4">Vue.js App with No Configuration</span>
+                <span class="align-self-stretch text-lg font-normal line-height-3"
+                    >Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                </span>
+            </div>
+        </div>
+        <div class="flex w-full align-items-center gap-4 pt-6" style="max-width: 1062px">
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+
+            <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
+            <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
+        </div>
     </div>
 
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
@@ -131,10 +148,10 @@
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
         </div>
     </div>
-    <div class="flex justify-content-center">
+    <div class="flex justify-content-center md:p-8">
         <div class="grid w-full" style="max-width: 1062px">
             <div class="flex flex-column col-12 md:col-6 justify-content-start align-items-center md:align-items-end">
-                <div class="card w-full" style="max-width: 410px">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/responsive.svg" class="w-full" alt="" />
                         <div>
@@ -143,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-full" style="max-width: 410px">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/Support.svg" class="w-full" alt="" />
                         <div>
@@ -152,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-full" style="max-width: 410px">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/Eslint.svg" class="w-full" alt="" />
                         <div>
@@ -162,8 +179,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-column col-12 md:col-6 md:mt-8 md:pt-4 align-items-center">
-                <div class="card w-full" style="max-width: 410px">
+            <div class="flex flex-column col-12 md:col-6 md:mt-8 md:pt-4 md:align-items-start align-items-center">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/Browser.svg" class="w-full" alt="" />
                         <div>
@@ -172,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-full" style="max-width: 410px">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/Design.svg" class="w-full" alt="" />
                         <div>
@@ -181,13 +198,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="card w-full" style="max-width: 410px">
+                <div class="card w-full" style="max-width: 410px; min-width: 300px">
                     <div class="flex flex-column align-items-center">
                         <img src="./assets/features-images/Mobile.svg" class="w-full" alt="" />
                         <div>
                             <h5 class="mt-2">Mobile Experience</h5>
                             <div class="text-xs md:text-base font-normal line-height-3">Touch optimized enhanced mobile experience with responsive design.</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="flex text-900 text-2xl md:text-6xl justify-content-center font-semibold w-full md:p-8">Related Layouts</span>
+    <div class="flex w-full justify-content-center">
+        <div class="grid" style="max-width: 1062px">
+            <div class="col-12 lg:col-4">
+                <div class="flex p-3 h-full justify-content-center">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                        <img src="../templates/assets/layout-images/Atlantis.svg" class="border-round-lg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 lg:col-4">
+                <div class="flex p-3 h-full justify-content-center">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                        <img src="../templates/assets/layout-images/Avalon.svg" class="border-round-lg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 lg:col-4">
+                <div class="flex p-3 h-full justify-content-center">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                        <img src="../templates/assets/layout-images/Diamond.svg" class="border-round-lg" alt="" />
                     </div>
                 </div>
             </div>
@@ -273,22 +316,5 @@ export default {
 <style>
 a {
     text-decoration: underline;
-}
-.icon {
-    font-size: 24px;
-}
-
-.icon-container {
-    display: flex;
-    align-items: center;
-}
-
-/* Create the horizontal lines */
-.line {
-    flex-grow: 1;
-    height: 1px;
-    background-color: #000;
-    margin: 0 10px; /* Adjust the spacing between the lines and the icon */
-    border-radius: 50%; /* Round the ends of the lines */
 }
 </style>
