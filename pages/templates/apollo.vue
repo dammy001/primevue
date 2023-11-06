@@ -10,56 +10,54 @@
     >
         <template #container="{ closeCallback }">
             <div class="flex w-full justify-content-center">
-                <div class="card flex flex-column align-items-center px-6" style="width: 370px; height: 590px">
+                <div class="card flex flex-column align-items-center w-full h-full p-4" style="max-width: 356px; height: 454px">
                     <div class="flex align-items-center align-self-stretch gap-4">
                         <div class="flex flex-column align-items-start" style="gap: 2px">
-                            <span class="font-semibold text-xl" style="font-size: 22px">Apollo</span>
-                            <span class="font-normal text-sm" style="font-size: 14px">Layout For PrimeVue</span>
-                            <a class="cursor-pointer" style="color: #2196f3; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal; text-decoration-line: underline"> License Detail</a>
+                            <span class="font-semibold text-xl">Apollo</span>
+                            <span class="font-normal text-sm">Layout For PrimeVue</span>
+                            <a class="cursor-pointer text-xs font-medium underline" style="color: #2196f3"> License Detail</a>
                         </div>
                         <img src="./assets/ProductImage.svg" class="w-10rem h-8rem" alt="" />
                     </div>
 
                     <div class="flex flex-column gap-3 align-items-start align-self-stretch">
-                        <span class="p-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 600; line-height: normal">License</span>
-                        <div class="flex flex-column align-self-stretch border-1 mb-3 p-1" style="gap: 7px; border-radius: 4px; border-color: rgba(0, 0, 0, 0.1)">
-                            <div class="flex align-items-center justify-content-center align-self-stretch pb-2" style="gap: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+                        <span class="p-1 text-900 text-xs font-semibold">License</span>
+                        <div class="flex flex-column align-self-stretch gap-2 border-1 border-round-sm border-black-alpha-10 mb-3 p-1">
+                            <div class="flex align-items-center justify-content-center align-self-stretch gap-2 pb-2 border-bottom-1 border-black-alpha-10">
                                 <RadioButton v-model="checked" :value="checked" />
-                                <span class="flex-grow-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal">Basic License</span>
-                                <span class="flex align-items-start text-center vertical-align-middle" style="color: #000; font-size: 16px; font-style: normal; font-weight: 600; line-height: normal">$59</span>
+                                <span class="flex-grow-1 text-900 text-xs font-medium">Basic License</span>
+                                <span class="flex align-items-start text-center text-900 text-base font-semibold vertical-align-middle">$59</span>
                             </div>
                             <div class="flex flex-column justify-content-center align-items-start align-self-stretch" style="padding: 6px 12px">
-                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Non commercial usage</span>
-                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Single End Product, No multi use</span>
+                                <span class="text-900 text-xs font-normal line-height-3"> Non commercial usage</span>
+                                <span class="text-900 text-xs font-normal line-height-3"> Single End Product, No multi use</span>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-column gap-3 align-items-start align-self-stretch">
-                        <div class="flex flex-column align-self-stretch border-1 p-1" style="gap: 7px; border-radius: 4px; border-color: rgba(0, 0, 0, 0.1)">
-                            <div class="flex align-items-center justify-content-center align-self-stretch border-bottom-1 pb-2" style="gap: 10px">
+                        <div class="flex flex-column align-self-stretch border-1 p-1 gap-2 border-round-sm border-black-alpha-10">
+                            <div class="flex align-items-center justify-content-center align-self-stretch border-bottom-1 border-black-alpha-10 pb-2 gap-2">
                                 <RadioButton v-model="checked1" />
-                                <span class="flex-grow-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal">Extended License</span>
-                                <span class="flex align-items-start text-center vertical-align-middle" style="color: #000; font-size: 16px; font-style: normal; font-weight: 600; line-height: normal">$590</span>
+                                <span class="flex-grow-1 text-900 text-xs font-medium">Extended License</span>
+                                <span class="flex align-items-start text-center text-900 text-base font-semibold vertical-align-middle">$590</span>
                             </div>
                             <div class="flex flex-column justify-content-center align-items-start align-self-stretch" style="padding: 6px 12px">
-                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%">Commercial usage</span>
-                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Multiple end products </span>
+                                <span class="text-900 text-xs font-normal line-height-3">Commercial usage</span>
+                                <span class="text-900 text-xs font-normal line-height-3"> Multiple end products </span>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-column gap-3 mt-3 align-items-start align-self-stretch">
                         <span>Payment Method</span>
-                        <div class="flex justify-content-between">
+                        <div class="flex justify-content-between gap-3">
                             <Button label="Visa/Mastercard" size="small" outlined />
                             <Button label="Visa/Mastercard" size="small" outlined />
                         </div>
                         <div class="flex align-items-center justify-content-between">
                             <div class="flex align-items-center">
-                                <div id="rememberme1" class="p-checkbox p-component mr-2" data-pc-name="checkbox" data-pc-section="root">
-                                    <div class="p-hidden-accessible" data-pc-section="hiddeninputwrapper"><input data-pc-section="hiddeninput" type="checkbox" /></div>
-                                    <div class="p-checkbox-box" data-pc-section="input"></div>
-                                </div>
-                                <label for="rememberme1">I accept the Terms and Conditions.</label>
+                                <Checkbox v-model="checked" :binary="true" />
+
+                                <span class="text-xs font-medium pl-2">I accept the <span class="text-blue-700 underline cursor-pointer">Terms and Conditions.</span></span>
                             </div>
                         </div>
                         <div class="w-full">
@@ -73,7 +71,7 @@
     <div class="flex flex-column justify-content-center">
         <div class="flex flex-wrap justify-content-center align-items-center overflow-hidden" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat; background-size: cover">
             <div
-                class="flex w-full gap-4 pt-3 border-round-3xl my-8 p-4 xl:ml-8"
+                class="flex w-full gap-4 pt-3 border-round-3xl my-8 mx-3 p-4 xl:ml-8"
                 style="
                     border: 1px solid rgba(255, 255, 255, 0.24);
                     background: linear-gradient(180deg, rgba(170, 140, 255, 0) 0%, rgba(170, 140, 255, 0.8) 100%), rgba(255, 255, 255, 0.1);
@@ -83,8 +81,6 @@
                     min-width: 271px;
                     min-height: 285px;
                     max-height: 300px;
-                    margin-right: 1rem;
-                    margin-left: 1rem;
                 "
             >
                 <div class="flex flex-column justify-content-center align-items-start gap-4 md:gap-5" style="min-width: 251px">
@@ -116,7 +112,7 @@
     <div class="flex flex-column align-items-center gap-6" style="padding: 80px 120px">
         <div class="flex flex-column align-items-center" style="gap: 20px">
             <span class="flex flex-column align-self-stretch text-900 text-center text-6xl font-semibold" style="line-height: 56px"> <span>Integration with </span>Existing Vite Applications </span>
-            <span class="flex text-center text-base font-normal" style="line-height: 21px"
+            <span class="flex text-center text-base font-normal line-height-2"
                 >Only the folders that are related to the layout needs to move in to your project. We‘ve already created a short tutorial with details for Sakai Vue. The both templates have the same implementation.</span
             >
         </div>
@@ -144,7 +140,7 @@
         <div class="grid" style="max-width: 1062px">
             <div class="col-12 lg:col-4">
                 <div class="flex h-full justify-content-center">
-                    <div class="shadow-2 p-5 h-full flex flex-column surface-card" style="border-radius: 6px">
+                    <div class="shadow-2 p-5 h-full flex flex-column surface-card border-round-md">
                         <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
                             <img src="../templates/assets/Features/Use_applications.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
                             <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
@@ -157,7 +153,7 @@
             </div>
             <div class="col-12 lg:col-4">
                 <div class="flex h-full justify-content-center">
-                    <div class="shadow-2 p-5 h-full flex flex-column surface-card" style="border-radius: 6px">
+                    <div class="shadow-2 p-5 h-full flex flex-column surface-card border-round-md">
                         <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
                             <img src="../templates/assets/Features/E-commerce.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
                             <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
@@ -170,7 +166,7 @@
             </div>
             <div class="col-12 lg:col-4">
                 <div class="flex h-full justify-content-center">
-                    <div class="shadow-2 p-5 flex flex-column surface-card" style="border-radius: 6px">
+                    <div class="shadow-2 p-5 flex flex-column surface-card border-round-md">
                         <div class="flex flex-column align-items-center justify-content-center gap-4 w-full">
                             <img src="../templates/assets/Features/Pages.svg" alt="" class="w-full border-round-sm" style="max-width: 298px; max-height: 242px; background-color: #eff3f8" />
                             <div class="flex flex-column w-full align-items-start gap-4" style="max-width: 298px">
@@ -286,21 +282,21 @@
         <div class="grid" style="max-width: 1062px">
             <div class="col-12 lg:col-4">
                 <div class="flex p-3 h-full justify-content-center">
-                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white border-round-md" style="max-width: 418px">
                         <img src="../templates/assets/layout-images/Atlantis.svg" class="border-round-lg" alt="" />
                     </div>
                 </div>
             </div>
             <div class="col-12 lg:col-4">
                 <div class="flex p-3 h-full justify-content-center">
-                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white border-round-md" style="max-width: 418px">
                         <img src="../templates/assets/layout-images/Avalon.svg" class="border-round-lg" alt="" />
                     </div>
                 </div>
             </div>
             <div class="col-12 lg:col-4">
                 <div class="flex p-3 h-full justify-content-center">
-                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white" style="border-radius: 6px; max-width: 418px">
+                    <div class="p-3 h-full w-full flex flex-column justify-content-center surface-card bg-white border-round-md" style="max-width: 418px">
                         <img src="../templates/assets/layout-images/Diamond.svg" class="border-round-lg" alt="" />
                     </div>
                 </div>
@@ -315,6 +311,8 @@ export default {
     data() {
         return {
             visible: false,
+            checked: false,
+            checked1: true,
             items: [
                 {
                     id: 'one',
