@@ -1,4 +1,75 @@
 <template>
+    <Dialog
+        v-model:visible="visible"
+        modal
+        :pt="{
+            mask: {
+                style: 'backdrop-filter: blur(2px)'
+            }
+        }"
+    >
+        <template #container="{ closeCallback }">
+            <div class="flex w-full justify-content-center">
+                <div class="card flex flex-column align-items-center px-6" style="width: 370px; height: 590px">
+                    <div class="flex align-items-center align-self-stretch gap-4">
+                        <div class="flex flex-column align-items-start" style="gap: 2px">
+                            <span class="font-semibold text-xl" style="font-size: 22px">Apollo</span>
+                            <span class="font-normal text-sm" style="font-size: 14px">Layout For PrimeVue</span>
+                            <a class="cursor-pointer" style="color: #2196f3; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal; text-decoration-line: underline"> License Detail</a>
+                        </div>
+                        <img src="./assets/ProductImage.svg" class="w-10rem h-8rem" alt="" />
+                    </div>
+
+                    <div class="flex flex-column gap-3 align-items-start align-self-stretch">
+                        <span class="p-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 600; line-height: normal">License</span>
+                        <div class="flex flex-column align-self-stretch border-1 mb-3 p-1" style="gap: 7px; border-radius: 4px; border-color: rgba(0, 0, 0, 0.1)">
+                            <div class="flex align-items-center justify-content-center align-self-stretch pb-2" style="gap: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+                                <RadioButton v-model="checked" :value="checked" />
+                                <span class="flex-grow-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal">Basic License</span>
+                                <span class="flex align-items-start text-center vertical-align-middle" style="color: #000; font-size: 16px; font-style: normal; font-weight: 600; line-height: normal">$59</span>
+                            </div>
+                            <div class="flex flex-column justify-content-center align-items-start align-self-stretch" style="padding: 6px 12px">
+                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Non commercial usage</span>
+                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Single End Product, No multi use</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column gap-3 align-items-start align-self-stretch">
+                        <div class="flex flex-column align-self-stretch border-1 p-1" style="gap: 7px; border-radius: 4px; border-color: rgba(0, 0, 0, 0.1)">
+                            <div class="flex align-items-center justify-content-center align-self-stretch border-bottom-1 pb-2" style="gap: 10px">
+                                <RadioButton v-model="checked1" />
+                                <span class="flex-grow-1" style="color: #000; font-size: 12px; font-style: normal; font-weight: 500; line-height: normal">Extended License</span>
+                                <span class="flex align-items-start text-center vertical-align-middle" style="color: #000; font-size: 16px; font-style: normal; font-weight: 600; line-height: normal">$590</span>
+                            </div>
+                            <div class="flex flex-column justify-content-center align-items-start align-self-stretch" style="padding: 6px 12px">
+                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%">Commercial usage</span>
+                                <span style="color: #000; font-size: 12px; font-style: normal; font-weight: 400; line-height: 150%"> Multiple end products </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-column gap-3 mt-3 align-items-start align-self-stretch">
+                        <span>Payment Method</span>
+                        <div class="flex justify-content-between">
+                            <Button label="Visa/Mastercard" size="small" outlined />
+                            <Button label="Visa/Mastercard" size="small" outlined />
+                        </div>
+                        <div class="flex align-items-center justify-content-between">
+                            <div class="flex align-items-center">
+                                <div id="rememberme1" class="p-checkbox p-component mr-2" data-pc-name="checkbox" data-pc-section="root">
+                                    <div class="p-hidden-accessible" data-pc-section="hiddeninputwrapper"><input data-pc-section="hiddeninput" type="checkbox" /></div>
+                                    <div class="p-checkbox-box" data-pc-section="input"></div>
+                                </div>
+                                <label for="rememberme1">I accept the Terms and Conditions.</label>
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <Button @click="visible = false" class="w-full" label="Buy Now"></Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </Dialog>
     <div class="flex flex-column justify-content-center">
         <div class="flex flex-wrap justify-content-center align-items-center overflow-hidden" style="background-image: url('/_nuxt/pages/templates/assets/Hero.jpg'); background-repeat: no-repeat; background-size: cover">
             <div
@@ -22,7 +93,7 @@
                     <div class="flex flex-column justify-content-center align-items-start align-self-stretch">
                         <div class="flex flex-wrap align-items-center justify-content-around gap-3 align-self-stretch">
                             <Button label="Live Demo" class="flex w-full justify-content-center align-items-center surface-900 border-900" style="padding: 10.5px 17.5px; gap: 7px; border-radius: 48px; max-width: 200px"></Button>
-                            <Button label="Buy Now" severity="info" class="flex w-full justify-content-center align-items-center" style="padding: 10.5px 17.5px; gap: 7px; border-radius: 48px; max-width: 200px"></Button>
+                            <Button label="Buy Now" @click="visible = true" severity="info" class="flex w-full justify-content-center align-items-center" style="padding: 10.5px 17.5px; gap: 7px; border-radius: 48px; max-width: 200px"></Button>
                         </div>
                     </div>
                     <div class="flex lg:justify-content-start justify-content-center w-full sm:mb-3 align-items-center gap-3">
@@ -243,6 +314,7 @@ import FeatureMenu from '../templates/FeatureMenu.vue';
 export default {
     data() {
         return {
+            visible: false,
             items: [
                 {
                     id: 'one',
