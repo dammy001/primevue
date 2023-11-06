@@ -191,7 +191,7 @@
             <img src="../templates/assets/Apollo_logo.svg" alt="" class="flex justify-content-center align-items-center flex-grow-0" style="padding: 10px 11.992px 14px 12px" />
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
         </div>
-        <div class="flex flex-column p-5 w-full align-items-start gap-4 border-round-2xl bg-white" style="max-width: 788px; box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.08)">
+        <div class="flex flex-column p-5 w-full align-items-start gap-4 border-round-2xl bg-white" style="max-width: 788px; min-width: 347px; box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.08)">
             <div class="flex flex-column align-items-center align-self-stretch border-round-lg h-full" style="max-height: 221px">
                 <img src="../templates/assets/Vuecli.svg" alt="" class="h-full flex-grow-0 align-self-stretch" style="max-height: 165px" />
             </div>
