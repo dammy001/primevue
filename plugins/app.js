@@ -8,10 +8,14 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, {
         ripple: true,
         theme: {
-            preset: Lara
-            /*dark: false,
-            palette: {
-                primary: '#10b981',
+            preset: Lara,
+            options: {
+                dark: false,
+                fontFamily: 'myFontFamily',
+                fontSize: '2rem',
+                borderRadius: '8px',
+                textColor: 'red',
+                primaryColor: '#10b981',
                 shade: {
                     '000': '#ffffff',
                     100: '#f9fafb',
@@ -23,8 +27,14 @@ export default defineNuxtPlugin((nuxtApp) => {
                     700: '#4b5563',
                     800: '#374151',
                     900: '#1f2937'
-                }
-            }*/
+                },
+                css: `
+                    .body {
+                        background: red;
+                    }
+                `,
+                variables: {}
+            }
         }
     });
 

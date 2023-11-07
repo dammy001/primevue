@@ -1,30 +1,22 @@
-import shade from '@/components/lib/usetheme/primecss/utils/color/shade';
-import tint from '@/components/lib/usetheme/primecss/utils/color/tint';
+import palette from '@/components/lib/usetheme/primecss/utils/color/palette';
 
-const generatePalette = (color) => {
-    return Array.from({ length: 10 }).reduce((acc, _, i) => {
-        i <= 5 ? (acc[i === 0 ? '50' : `${i * 100}`] = tint(color, (5 - i) * 19)) : (acc[`${i * 100}`] = shade(color, (i - 5) * 15));
-
-        return acc;
-    }, {});
-};
-
-export default ({ dark = false, palette = {} }) => {
-    const variables = Object.entries(palette).reduce((acc, [k, v]) => {
-        return (acc[k] = typeof v === 'string' ? generatePalette(v) : v) && acc;
-    }, {});
+export default (options = {}) => {
+    const { dark = false, fontFamily, fontSize, borderRadius, textColor, primaryColor, shade, css, variables } = options;
 
     return {
         global: {
-            css: `:root { color-scheme: light; }`,
+            css: `
+:root { color-scheme: ${dark ? 'dark' : 'light'};}
+${css}
+`,
             properties: {
                 font: {
-                    family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-                    size: '14px',
+                    family: fontFamily || '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+                    size: fontSize || '14px',
                     weight: 'normal'
                 },
-                color: '#495057',
-                borderRadius: '6px',
+                color: textColor || '#495057',
+                borderRadius: borderRadius || '6px',
                 gap: '0.5rem',
                 transition: {
                     duration: '0.2s',
@@ -32,7 +24,7 @@ export default ({ dark = false, palette = {} }) => {
                 }
             },
             variables: {
-                primaryColor: '#3B82F6',
+                primaryColor: palette(primaryColor || '#3B82F6'),
                 primaryColorText: '#ffffff',
                 textColor: '#4b5563',
                 textColorSecondary: '#6b7280',
@@ -67,20 +59,20 @@ export default ({ dark = false, palette = {} }) => {
                     800: '#1f2937',
                     900: '#111827'
                 },
-                blue: generatePalette('#3B82F6'),
-                green: generatePalette('#22C55E'),
-                yellow: generatePalette('#EAB308'),
-                cyan: generatePalette('#06B6D4'),
-                pink: generatePalette('#EC4899'),
-                indigo: generatePalette('#6366F1'),
-                teal: generatePalette('#14B8A6'),
-                orange: generatePalette('#F97316'),
-                bluegray: generatePalette('#64748B'),
-                purple: generatePalette('#A855F7'),
-                red: generatePalette('#FF3D32'),
-                primary: generatePalette('#10b981'),
+                blue: palette('#3B82F6'),
+                green: palette('#22C55E'),
+                yellow: palette('#EAB308'),
+                cyan: palette('#06B6D4'),
+                pink: palette('#EC4899'),
+                indigo: palette('#6366F1'),
+                teal: palette('#14B8A6'),
+                orange: palette('#F97316'),
+                bluegray: palette('#64748B'),
+                purple: palette('#A855F7'),
+                red: palette('#FF3D32'),
+                primary: palette(primaryColor || '#10b981'),
                 /* @todo: change name with 'palette' */
-                shade: {
+                shade: palette(shade) || {
                     '000': '#ffffff',
                     100: '#f9fafb',
                     200: '#f3f4f6',
@@ -100,7 +92,7 @@ export default ({ dark = false, palette = {} }) => {
                 header: {
                     properties: {
                         color: '{global.primary.500}',
-                        background: dark ? '{global.shade.800}' : '{global.shade.100}',
+                        background: dark ? '{global.shade.800}' : '{global.shade.100}', // var(--p-shade-800)
                         padding: {
                             top: '1.25rem',
                             right: '1.25rem',
