@@ -15,7 +15,7 @@
         :unstyled="unstyled"
     >
         <template v-if="$slots.container" #container="slotProps">
-            <slot name="container" :message="confirmation" :onClose="slotProps.onClose" :onAccept="accept" :onReject="reject" />
+            <slot name="container" :message="confirmation" :onClose="slotProps.onClose" :onAccept="accept" :onReject="reject" :closeCallback="slotProps.onclose" :acceptCallback="accept" :rejectCallback="reject" />
         </template>
         <template v-if="!$slots.container">
             <template v-if="!$slots.message">
@@ -55,7 +55,6 @@ import BaseConfirmDialog from './BaseConfirmDialog.vue';
 export default {
     name: 'ConfirmDialog',
     extends: BaseConfirmDialog,
-
     confirmListener: null,
     closeListener: null,
     data() {

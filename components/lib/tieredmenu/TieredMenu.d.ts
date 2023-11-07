@@ -89,7 +89,7 @@ export interface TieredMenuPassThroughOptions {
      */
     submenu?: TieredMenuPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -184,9 +184,9 @@ export interface TieredMenuContext {
 }
 
 /**
- * Defines valid router binding props in TabMenu component.
+ * Defines valid router binding props in TieredMenu component.
  */
-export interface TabMenuRouterBindProps {
+export interface TieredMenuRouterBindProps {
     /**
      * Action element binding
      */
@@ -292,7 +292,7 @@ export interface TieredMenuSlots {
         /**
          * Binding properties of the menuitem
          */
-        props: TabMenuRouterBindProps;
+        props: TieredMenuRouterBindProps;
         /**
          * Whether or not there is a submenu
          */
@@ -322,6 +322,14 @@ export interface TieredMenuSlots {
          */
         class: any;
     }): VNode[];
+    /**
+     * Custom start template.
+     */
+    start(): VNode[];
+    /**
+     * Custom end template.
+     */
+    end(): VNode[];
 }
 
 /**

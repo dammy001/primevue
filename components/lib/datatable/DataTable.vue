@@ -402,7 +402,7 @@ export default {
             }
         },
         editingRows: {
-            deep: true,
+            immediate: true,
             handler(newValue) {
                 if (this.dataKey) {
                     this.updateEditingRowKeys(newValue);
@@ -787,6 +787,8 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
+                if (e.originalEvent.target.getAttribute('data-pc-section') === 'rowtogglericon' || e.originalEvent.target.parentElement.getAttribute('data-pc-section') === 'rowtogglericon') return;
+
                 const targetRow = e.originalEvent.target.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';

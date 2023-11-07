@@ -67,7 +67,7 @@ export interface StepsPassThroughOptions {
      */
     label?: StepsPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -115,7 +115,7 @@ export interface StepsRouterBindProps {
     /**
      * Icon element binding
      */
-    icon: object;
+    step: object;
     /**
      * Label element binding
      */

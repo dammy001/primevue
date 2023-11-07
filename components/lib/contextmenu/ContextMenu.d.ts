@@ -90,7 +90,7 @@ export interface ContextMenuPassThroughOptions {
      */
     submenu?: ContextMenuPassThroughOptionType;
     /**
-     * Used to manage all lifecycle hooks
+     * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
@@ -290,6 +290,10 @@ export interface ContextMenuSlots {
          * Label property of the menuitem
          */
         label: string | ((...args: any) => string) | undefined;
+        /**
+         * Whether or not there is a submenu
+         */
+        hasSubmenu: boolean;
         /**
          * Binding properties of the menuitem
          */

@@ -5,7 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/dialog/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/dialog/BasicDoc.vue';
-import FooterDoc from '@/doc/dialog/FooterDoc.vue';
+import HeadlessDoc from '@/doc/dialog/HeadlessDoc.vue';
 import ImportDoc from '@/doc/dialog/ImportDoc.vue';
 import LongContentDoc from '@/doc/dialog/LongContentDoc.vue';
 import MaximizableDoc from '@/doc/dialog/MaximizableDoc.vue';
@@ -31,9 +31,19 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'footer',
-                    label: 'Footer',
-                    component: FooterDoc
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'position',
+                    label: 'Position',
+                    component: PositionDoc
+                },
+                {
+                    id: 'maximizable',
+                    label: 'Maximizable',
+                    component: MaximizableDoc
                 },
                 {
                     id: 'longcontent',
@@ -46,24 +56,14 @@ export default {
                     component: WithoutModalDoc
                 },
                 {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
-                },
-                {
                     id: 'responsive',
                     label: 'Responsive',
                     component: ResponsiveDoc
                 },
                 {
-                    id: 'position',
-                    label: 'Position',
-                    component: PositionDoc
-                },
-                {
-                    id: 'maximizable',
-                    label: 'Maximizable',
-                    component: MaximizableDoc
+                    id: 'headless',
+                    label: 'Headless',
+                    component: HeadlessDoc
                 },
                 {
                     id: 'accessibility',
