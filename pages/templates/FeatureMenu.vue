@@ -12,7 +12,7 @@
                 <img :src="`/_nuxt/pages/templates/assets/numbers/${activeItem.id === item.id ? item.id + '-fill' : item.id}.svg`" :alt="item.id" />
                 <div class="flex flex-column align-items-start gap-1 flex-1">
                     <div class="text-lg text-900 align-items-stretch font-semibold line-height-3">{{ item.title }}</div>
-                    <div class="text-xs md:text-sm font-normal line-height-3">{{ item.description }}</div>
+                    <div class="text-xs md:text-sm font-normal sm:line-height-3">{{ item.description }}</div>
                 </div>
             </li>
         </ul>

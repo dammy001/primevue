@@ -8,7 +8,7 @@
             }
         }"
     >
-        <template #container="{ closeCallback }">
+        <template #container>
             <div class="flex w-full justify-content-center">
                 <div class="card flex flex-column align-items-center w-full h-full p-4" style="max-width: 356px; height: 454px">
                     <div class="flex align-items-center align-self-stretch gap-4">
@@ -109,24 +109,27 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-column align-items-center gap-6" style="padding: 80px 120px">
-        <div class="flex flex-column align-items-center" style="gap: 20px">
-            <span class="flex flex-column align-self-stretch text-900 text-center text-6xl font-semibold" style="line-height: 56px"> <span>Integration with </span>Existing Vite Applications </span>
-            <span class="flex text-center text-base font-normal line-height-2"
+    <div class="flex flex-column align-items-center gap-6 py-4 md:py-8">
+        <div class="flex flex-column align-items-center gap-3" style="max-width: 700px">
+            <div class="flex flex-column w-full">
+                <span class="text-900 text-2xl text-center md:text-6xl font-semibold" style="max-width: 700px">Integration with </span>
+                <span class="text-900 text-2xl text-center md:text-6xl font-semibold" style="max-width: 700px"> Existing Vite Applications </span>
+            </div>
+            <span class="text-base text-center font-normal line-height-2"
                 >Only the folders that are related to the layout needs to move in to your project. We‘ve already created a short tutorial with details for Sakai Vue. The both templates have the same implementation.</span
             >
         </div>
-        <div class="border-round-2xl" style="max-width: 930px; max-height: 596.25px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
-            <div class="relative w-22rem md:w-full h-12rem md:h-full">
-                <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px)" alt="" />
+        <div class="border-round-2xl" style="max-width:1062px; max-height: 596.25px; min-width:351px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
+            <div class="relative h-12rem md:h-full">
+                <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px);" alt="" />
                 <div class="flex" style="max-width: 100px">
                     <img src="../templates/assets/PLay.svg" class="absolute top-50 right-50 cursor-pointer" style="margin-right: -5rem; margin-top: -5rem; height: 10rem" alt="" />
                 </div>
             </div>
         </div>
     </div>
-    <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
-        <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900" style="max-width: 718px">Features that the Apolla template gives you</p>
+    <div class="flex flex-column align-items-center justify-content-center gap-6 py-4 md:py-8">
+        <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900 mb-0" style="max-width: 718px">Features that the Apolla template gives you</p>
         <FeatureMenu :items="items" :dynamicStyle="{ height: '8rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
@@ -180,7 +183,7 @@
         </div>
     </div>
 
-    <div class="flex flex-column justify-content-center align-items-center gap-2 w-full p-8" style="max-width: 1440px">
+    <div class="flex flex-column justify-content-center align-items-center gap-2 w-full md:py-8" style="max-width: 1440px">
         <div class="flex w-full align-items-center gap-4 pb-6" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
@@ -207,7 +210,7 @@
     </div>
 
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-8">
-        <FeatureMenu :items="items2" :dynamicStyle="{ height: '10.4rem' }" />
+        <FeatureMenu :items="items2" :dynamicStyle="{ height: '10.3rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
 
@@ -386,5 +389,13 @@ export default {
 <style>
 a {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 430px) {
+    .flex.flex-wrap.justify-content-center.align-items-center.overflow-hidden {
+        background-image: url('/_nuxt/pages/templates/assets/Mobile-hero.svg') !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 </style>
