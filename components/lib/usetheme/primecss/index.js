@@ -1,4 +1,4 @@
-import Utils from './utils.js';
+import Utils from './utilities.js';
 
 const VARIABLE = {
     PREFIX: 'p',
@@ -21,13 +21,14 @@ const SELECTOR = {
         after: ':after',
         hover: ':hover',
         focus: ':focus',
+        active: ':active',
         focusVisible: ':focus-visible',
         enabled: ':enabled',
         lastChild: ':last-child'
     }
 };
 
-const EXCLUDED_KEY_REGEX = /^(selector|properties|compounds|children|states|css|variants|variables)$/gi;
+const EXCLUDED_KEY_REGEX = /^(selector|properties|compounds|combinators|states|css|variants|variables)$/gi;
 const EXCLUDED_KEY_REGEX_FOR_FIGMA = /^(typography)$/gi;
 
 const PrimeCSS = {
@@ -97,7 +98,7 @@ const PrimeCSS = {
         const _generate = (_theme = {}, _prefix = '', _selector = '', _keys = [], _compound = false) => {
             return Object.entries(_theme).reduce(
                 (acc, [key, value]) => {
-                    const { styles, variables, properties } = acc;
+                    const { styles, variables, constantVariables, properties } = acc;
                     const px = Utils.object.test(EXCLUDED_KEY_REGEX, key) || Utils.object.test(excludedKeyRegex, key) ? _prefix : `${_prefix}-${Utils.object.toKebabCase(key)}`;
 
                     if (Utils.object.isObject(value) && key !== 'selector') {
@@ -137,12 +138,12 @@ const PrimeCSS = {
                                 computed = _generate(value, px, _selector, path, true);
                                 break;
 
-                            case 'children':
+                            case 'combinators':
                                 computed = _generate(value, px, _selector, path);
                                 break;
 
                             case 'variables':
-                                computed.variables = this.toVariables(value, { prefix: px }).value;
+                                computed.constantVariables = this.toVariables(value, { prefix: px }).value;
                                 break;
 
                             default:
@@ -154,6 +155,7 @@ const PrimeCSS = {
 
                         Utils.object.merge(styles, computed.styles);
                         Utils.object.merge(variables, computed.variables);
+                        Utils.object.merge(constantVariables, computed.constantVariables);
                         Utils.object.merge(properties, computed.properties);
                     } else if (key === 'css') {
                         Utils.object.merge(styles, [`${value}`]);
@@ -164,13 +166,14 @@ const PrimeCSS = {
                 {
                     styles: [],
                     variables: [],
+                    constantVariables: [],
                     properties: []
                 }
             );
         };
 
-        const { styles, variables, properties } = _generate(theme, prefix, selectorPrefix, undefined, !!selectorPrefix);
-        const _variables = isLenientTransform ? variables.filter((vr) => variablesInValue.has(vr.split(':')[0])) : variables;
+        const { styles, variables, constantVariables, properties } = _generate(theme, prefix, selectorPrefix, undefined, !!selectorPrefix);
+        const _variables = [...constantVariables, ...(isLenientTransform ? variables.filter((vr) => variablesInValue.has(vr.split(':')[0])) : variables)];
 
         return {
             styles: {

@@ -1,4 +1,4 @@
-const Utils = {
+export default {
     object: {
         isEmpty(value) {
             return value === null || value === undefined || value === '' || (Array.isArray(value) && value.length === 0) || (!(value instanceof Date) && typeof value === 'object' && Object.keys(value).length === 0);
@@ -256,7 +256,6 @@ const Utils = {
 
             const computedValue = Utils.object.getVariableValue(_value, _prefix, prefix, excludedKeyRegexes);
 
-            // @todo Update computedValues and tokens options
             return {
                 styles: [`box-shadow: var(--${_prefix});`],
                 variables: [`--${_prefix}: ${computedValue};`],
@@ -267,5 +266,3 @@ const Utils = {
         }
     }
 };
-
-export default Utils;
