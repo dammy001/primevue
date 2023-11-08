@@ -218,7 +218,7 @@ export default {
             return this.theme !== undefined ? this.theme : this.$config?.theme;
         },
         $preset() {
-            const { preset, ...options } = this.$theme || {};
+            const { preset, options } = this.$theme || {};
 
             return ObjectUtils.getItemValue(preset, options);
         },

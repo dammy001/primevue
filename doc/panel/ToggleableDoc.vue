@@ -3,41 +3,7 @@
         <p>Content of the panel can be expanded and collapsed using <i>toggleable</i> option.</p>
     </DocSectionText>
     <div class="card">
-        <Panel
-            header="Header"
-            toggleable
-            class="custom-panel"
-            :theme="{
-                panel: {
-                    title: {
-                        properties: {
-                            color: '#ffffff'
-                        }
-                    },
-                    header: {
-                        properties: {
-                            background: '#3B82F6'
-                        }
-                    },
-                    toggler: {
-                        properties: {
-                            color: '#ffffff',
-                            padding: '.25rem',
-                            border: {
-                                radius: '100%'
-                            }
-                        },
-                        states: {
-                            hover: {
-                                properties: {
-                                    background: 'rgba(0, 0, 0, .4)'
-                                }
-                            }
-                        }
-                    }
-                }
-            }"
-        >
+        <Panel header="Header" toggleable class="custom-panel">
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -47,9 +13,9 @@
 </template>
 
 <script>
-import { useTheme } from 'primevue/usetheme';
+//import { useTheme } from 'primevue/usetheme';
 
-const { load: loadCSS } = useTheme(undefined, { name: 'custom-panel', selectorOptions: { selectors: { 'custom-panel': '.custom-panel' } } });
+//const { load: loadCSS } = useTheme(undefined, { name: 'custom-panel', selectorOptions: { selectors: { 'custom-panel': '.custom-panel' } } });
 
 export default {
     data() {

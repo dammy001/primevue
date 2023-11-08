@@ -5,10 +5,7 @@ export default (options = {}) => {
 
     return {
         global: {
-            css: `
-:root { color-scheme: ${dark ? 'dark' : 'light'};}
-${css}
-`,
+            css: `:root { color-scheme: ${dark ? 'dark' : 'light'};}${css ?? ''}`,
             properties: {
                 font: {
                     family: fontFamily || '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -71,7 +68,7 @@ ${css}
                 purple: palette('#A855F7'),
                 red: palette('#FF3D32'),
                 primary: palette(primaryColor || '#10b981'),
-                /* @todo: change name with 'palette' */
+                /* @todo: change 'shade' name with 'palette' */
                 shade: palette(shade) || {
                     '000': '#ffffff',
                     100: '#f9fafb',

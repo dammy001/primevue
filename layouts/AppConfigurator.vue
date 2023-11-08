@@ -260,9 +260,9 @@ export default {
             themes: {
                 LaraTealLight: {
                     preset: Lara,
-                    dark: false,
-                    palette: {
-                        primary: '#10b981',
+                    options: {
+                        dark: false,
+                        primaryColor: '#10b981',
                         shade: {
                             '000': '#ffffff',
                             100: '#f9fafb',
@@ -279,9 +279,9 @@ export default {
                 },
                 LaraBlueLight: {
                     preset: Lara,
-                    dark: false,
-                    palette: {
-                        primary: '#3B82F6',
+                    options: {
+                        dark: false,
+                        primaryColor: '#3B82F6',
                         shade: {
                             '000': '#ffffff',
                             100: '#f9fafb',
@@ -298,9 +298,9 @@ export default {
                 },
                 LaraTealDark: {
                     preset: Lara,
-                    dark: true,
-                    palette: {
-                        primary: '#34d399',
+                    options: {
+                        dark: true,
+                        primaryColor: '#34d399',
                         shade: {
                             '000': 'rgba(255,255,255,.87)',
                             100: 'rgba(255,255,255,.60)',
@@ -314,9 +314,9 @@ export default {
                 },
                 LaraBlueDark: {
                     preset: Lara,
-                    dark: true,
-                    palette: {
-                        primary: '#60a5fa',
+                    options: {
+                        dark: true,
+                        primaryColor: '#60a5fa',
                         shade: {
                             '000': 'rgba(255,255,255,.87)',
                             100: 'rgba(255,255,255,.60)',
