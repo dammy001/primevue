@@ -95,11 +95,11 @@
                     <div class="flex lg:justify-content-start justify-content-center w-full sm:mb-3 align-items-center gap-3">
                         <div class="flex justify-content-center align-items-center mb-2 md:mb-0 gap-2">
                             <i class="pi pi-github text-white" />
-                            <a class="flex justify-content-center text-white">Get Support</a>
+                            <a target="_blank" href="https://github.com/orgs/primefaces/discussions" class="flex justify-content-center text-white underline">Get Support</a>
                         </div>
                         <div class="flex justify-content-center align-items-center mb-2 md:mb-0 gap-2">
                             <i class="pi pi-book text-white" />
-                            <a class="flex justify-content-center text-white">Read Docs</a>
+                            <a target="_blank" href="https://apollo.primevue.org/documentation" class="flex justify-content-center text-white underline">Read Docs</a>
                         </div>
                     </div>
                 </div>
@@ -119,17 +119,27 @@
                 >Only the folders that are related to the layout needs to move in to your project. We‘ve already created a short tutorial with details for Sakai Vue. The both templates have the same implementation.</span
             >
         </div>
-        <div class="border-round-2xl" style="max-width:1062px; max-height: 596.25px; min-width:351px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
+        <div class="border-round-2xl" style="max-width: 1062px; max-height: 596.25px; min-width: 351px; background-color: #e0e0f7; backdrop-filter: blur(2px)">
             <div class="relative h-12rem md:h-full">
-                <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px);" alt="" />
+                <img src="../templates/assets/Dashboard.svg" class="flex align-items-start w-full h-full" style="object-fit: cover; filter: blur(2px)" alt="" />
                 <div class="flex" style="max-width: 100px">
-                    <img src="../templates/assets/PLay.svg" class="absolute top-50 right-50 cursor-pointer" style="margin-right: -5rem; margin-top: -5rem; height: 10rem" alt="" />
+                    <img src="../templates/assets/PLay.svg" @click="displayModal = true" class="absolute top-50 right-50 cursor-pointer" style="margin-right: -5rem; margin-top: -5rem; height: 10rem" alt="" />
                 </div>
             </div>
         </div>
     </div>
+    <Dialog :pt="{ content: { style: 'flex-grow:1' } }" header="Video Content" v-model:visible="displayModal" :modal="true" :style="{ width: '80vw', height: '45vw' }" :draggable="false" :resizable="false">
+        <iframe
+            :style="{ width: '100%', height: '100%' }"
+            src="https://www.youtube.com/embed/Y07edRJd5QM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        ></iframe>
+    </Dialog>
     <div class="flex flex-column align-items-center justify-content-center gap-6 py-4 md:py-8">
-        <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900 mb-0" style="max-width: 718px">Features that the Apolla template gives you</p>
+        <p class="align-items-center text-center font-semibold line-height-3 align-items-stretch text-2xl md:text-6xl text-900 mb-0" style="max-width: 718px">Features that the Apollo template gives you</p>
         <FeatureMenu :items="items" :dynamicStyle="{ height: '8rem' }" />
         <div class="flex w-full align-items-center gap-4" style="max-width: 1062px">
             <div class="flex-1" style="height: 1px; background-color: #dfe7ef"></div>
@@ -197,7 +207,7 @@
             <div class="flex flex-column align-items-start gap-4 align-self-stretch">
                 <span class="align-self-stretch text-2xl font-bold line-height-4">Vue.js App with No Configuration</span>
                 <span class="align-self-stretch text-lg font-normal line-height-3"
-                    >Apollo is powered by Angular CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
+                    >Apollo is powered by Vue CLI to get started in no time following the best practices like service based component interaction modular design and strict mode support
                 </span>
             </div>
         </div>
@@ -313,6 +323,7 @@ import FeatureMenu from '../templates/FeatureMenu.vue';
 export default {
     data() {
         return {
+            displayModal: false,
             visible: false,
             checked: false,
             checked1: true,
@@ -387,10 +398,6 @@ export default {
 </script>
 
 <style>
-a {
-    text-decoration: underline;
-}
-
 @media screen and (max-width: 430px) {
     .flex.flex-wrap.justify-content-center.align-items-center.overflow-hidden {
         background-image: url('/_nuxt/pages/templates/assets/Mobile-hero.svg') !important;
