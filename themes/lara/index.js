@@ -1,7 +1,7 @@
 import palette from '@/components/lib/usetheme/primecss/utils/color/palette';
 
 export default (options = {}) => {
-    const { dark = false, fontFamily, fontSize, borderRadius, textColor, primaryColor, shade, css, variables } = options;
+    const { dark = false, condensed = false, fontFamily, fontSize, borderRadius, textColor, primaryColor, shade, css, variables } = options;
 
     return {
         global: {
@@ -91,10 +91,10 @@ export default (options = {}) => {
                         color: '{global.primary.500}',
                         background: dark ? '{global.shade.800}' : '{global.shade.100}', // var(--p-shade-800)
                         padding: {
-                            top: '1.25rem',
-                            right: '1.25rem',
-                            bottom: '1.25rem',
-                            left: '1.25rem'
+                            top: condensed ? '1.25rem' : '1.25rem',
+                            right: condensed ? '1.25rem' : '1.25rem',
+                            bottom: condensed ? '1.25rem' : '1.25rem',
+                            left: condensed ? '1.25rem' : '1.25rem'
                         },
                         border: {
                             width: '1px',
@@ -165,10 +165,10 @@ export default (options = {}) => {
                         color: dark ? '{global.shade.000}' : '#4b5563',
                         background: dark ? '{global.shade.800}' : '{global.shade.000}',
                         padding: {
-                            top: '1.25rem',
-                            right: '1.25rem',
-                            bottom: '1.25rem',
-                            left: '1.25rem'
+                            top: condensed ? '1.25rem' : '1.25rem',
+                            right: condensed ? '1.25rem' : '1.25rem',
+                            bottom: condensed ? '1.25rem' : '1.25rem',
+                            left: condensed ? '1.25rem' : '1.25rem'
                         },
                         border: {
                             width: '1px',
@@ -197,10 +197,10 @@ export default (options = {}) => {
                         color: '{global.shade.700}',
                         background: '{global.shade.000}',
                         padding: {
-                            top: '0.75rem',
-                            right: '1.25rem',
-                            bottom: '0.75rem',
-                            left: '1.25rem'
+                            top: condensed ? '0.75rem' : '0.75rem',
+                            right: condensed ? '1.25rem' : '1.25rem',
+                            bottom: condensed ? '0.75rem' : '0.75rem',
+                            left: condensed ? '1.25rem' : '1.25rem'
                         },
                         border: {
                             width: '1px',
@@ -223,10 +223,10 @@ export default (options = {}) => {
                         header: {
                             properties: {
                                 padding: {
-                                    top: '0.75rem',
-                                    right: '1.25rem',
-                                    bottom: '0.75rem',
-                                    left: '1.25rem'
+                                    top: condensed ? '0.75rem' : '0.75rem',
+                                    right: condensed ? '1.25rem' : '1.25rem',
+                                    bottom: condensed ? '0.75rem' : '0.75rem',
+                                    left: condensed ? '1.25rem' : '1.25rem'
                                 }
                             }
                         }
